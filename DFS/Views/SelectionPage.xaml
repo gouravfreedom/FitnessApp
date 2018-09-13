@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage NavigationPage.HasNavigationBar="false" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.SelectionPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                <Frame WidthRequest="200"                          
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"
+                       CornerRadius="10"
+                       OutlineColor="{StaticResource GreenColor}"
+                       x:Name="TrainerFrame"
+                       BackgroundColor="{StaticResource BlackColor}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Handle_TrainerAsync"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="TrainerLabel" HorizontalTextAlignment="Center" Text="I'M A TRAINER" TextColor="{StaticResource GreenColor}"/>
+                 </Frame>
+
+                <Frame WidthRequest="200"
+                       Margin="0,20,0,0"
+                       HorizontalOptions="Center"
+                       HasShadow="true"
+                       OutlineColor="{StaticResource GreenColor}"
+                       CornerRadius="15"
+                       x:Name="TraineeFrame"
+                       VerticalOptions="CenterAndExpand"
+                       BackgroundColor="{StaticResource BlackColor}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Handle_TraineeAsync"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="TraineeLabel" HorizontalTextAlignment="Center" Text="I'M A TRAINEE" TextColor="{StaticResource GreenColor}"/>
+                 </Frame>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage NavigationPage.HasNavigationBar="false" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.UserInformationPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" HorizontalOptions="FillAndExpand">
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label Text="PERSONAL INFORMATION" Margin="20" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+                        <!-- Image View -->
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="celebrity.jpg" Margin="20,0" HorizontalOptions="Start" HeightRequest="120" WidthRequest="120" />
+                            <Label Text="Upload Photo" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="White">
+                                <Label.GestureRecognizers>
+                                    
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Title" TextColor="White" Font="Bold"/>
+                            <Picker Title="Select Title" BackgroundColor="White" TextColor="Gray">
+                                  <Picker.Items>
+                                    <x:String>Mr.</x:String>
+                                    <x:String>Mrs.</x:String>
+                                    <x:String>Miss</x:String>
+                                  </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Name" TextColor="White" Font="Bold"/>
+                            <Entry Placeholder="Enter Name" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Genre" TextColor="White" Font="Bold"/>
+                            <Picker Title="Select Gender" BackgroundColor="White" TextColor="Gray">
+                                  <Picker.Items>
+                                    <x:String>Male</x:String>
+                                    <x:String>Female</x:String>
+                                  </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Date of Birth" TextColor="White" Font="Bold"/>
+                            <DatePicker BackgroundColor="White" TextColor="Gray">
+                                  
+                            </DatePicker>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Phone Number" TextColor="White" Font="Bold"/>
+                            <Entry Placeholder="Enter Phone Number" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Height" TextColor="White" Font="Bold"/>
+                            <Entry Placeholder="Enter Height" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Weight" TextColor="White" Font="Bold"/>
+                            <Entry Placeholder="Enter Weight" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Sports Interest" TextColor="White" Font="Bold"/>
+                            <Picker Title="Select Sports" BackgroundColor="White" TextColor="Gray">
+                                  <Picker.Items>
+                                    <x:String>Cricket</x:String>
+                                    <x:String>Baseball</x:String>
+                                    <x:String>Football</x:String>
+                                    <x:String>Tennis</x:String>
+                                    <x:String>Table Tennis</x:String>
+                                    <x:String>Basketball</x:String>
+                                    <x:String>Swimming</x:String>
+                                    <x:String>Athletics</x:String>
+                                    <x:String>Others</x:String>
+                                  </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Medical Information" TextColor="White" Font="Bold"/>
+                            <Editor HeightRequest="50" TextColor="Gray" BackgroundColor="White"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!-- Service View -->
+                    <!--<StackLayout>
+                        <Label Text="SERVICES" Margin="20" FontSize="Large" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Speciality" TextColor="White" Font="Bold"/>
+                            <Picker Title="Select Speciality" BackgroundColor="White" TextColor="Gray"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,0">
+                            <Label Text="Experience" TextColor="White" Font="Bold"/>
+                            <Picker Title="Select Experience" BackgroundColor="White" TextColor="Gray"/>
+                        </StackLayout>
+
+
+                    </StackLayout>-->
+
+                    <Button WidthRequest="120" Clicked="Handle_Clicked" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                    
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

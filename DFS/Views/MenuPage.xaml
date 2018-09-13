@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.MenuPage"  Title="{Binding Title}"
+    Icon="{Binding Icon}">
+	<ContentPage.Content>
+       <StackLayout VerticalOptions="FillAndExpand">
+
+            
+        <Grid RowSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource GreenColor}">
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        
+                        <Image Source="roger.jpeg" HeightRequest="70" WidthRequest="70" />
+                        <Label Text="Lalinsky Brown" Font="Bold" FontSize="20"/>
+                    </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="1" BackgroundColor="{StaticResource BackColor}">
+                <ListView 
+                        BackgroundColor="{StaticResource BackColor}"
+                    CachingStrategy="RecycleElement"
+                    SeparatorColor="Transparent"
+                    HasUnevenRows="True"
+
+                        Margin="30,40,1,1"
+                    x:Name="ListViewMenu">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
+                                    <Label  Text="{Binding Title}" HorizontalOptions="StartAndExpand" TextColor="{StaticResource LightTextColor}" FontSize="20"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+                
+            
+         
+       </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
