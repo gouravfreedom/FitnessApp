@@ -189,6 +189,7 @@
     <Compile Include="Service\CoachList.cs" />
     <Compile Include="Models\Coach.cs" />
     <Compile Include="Models\TraineeSignupModel.cs" />
+    <Compile Include="ViewModels\SignupViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

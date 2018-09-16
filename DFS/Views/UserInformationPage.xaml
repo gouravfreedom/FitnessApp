@@ -19,72 +19,55 @@
 
                         <StackLayout Margin="20,0">
                             <Label Text="Title" TextColor="White" Font="Bold"/>
-                            <Picker Title="Select Title" BackgroundColor="White" TextColor="Gray">
-                                  <Picker.Items>
-                                    <x:String>Mr.</x:String>
-                                    <x:String>Mrs.</x:String>
-                                    <x:String>Miss</x:String>
-                                  </Picker.Items>
+                            <Picker SelectedIndex="{Binding TitleSelectIndex}" ItemsSource="{Binding TitleList}" Title="Select Title" BackgroundColor="White" TextColor="Gray">
+                                  
                             </Picker>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Name" TextColor="White" Font="Bold"/>
-                            <Entry Placeholder="Enter Name" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                            <Entry Text="{Binding Name}" Placeholder="Enter Name" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Genre" TextColor="White" Font="Bold"/>
-                            <Picker Title="Select Gender" BackgroundColor="White" TextColor="Gray">
-                                  <Picker.Items>
-                                    <x:String>Male</x:String>
-                                    <x:String>Female</x:String>
-                                  </Picker.Items>
+                            <Picker SelectedIndex="{Binding GenderIndex}" ItemsSource="{Binding GenderList}" Title="Select Gender" BackgroundColor="White" TextColor="Gray">
+                                  
                             </Picker>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Date of Birth" TextColor="White" Font="Bold"/>
-                            <DatePicker BackgroundColor="White" TextColor="Gray">
+                            <DatePicker Date="{Binding DateOfBirth}" BackgroundColor="White" TextColor="Gray">
                                   
                             </DatePicker>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Phone Number" TextColor="White" Font="Bold"/>
-                            <Entry Placeholder="Enter Phone Number" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                            <Entry Text="{Binding TelephoneNumber}" Placeholder="Enter Phone Number" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Height" TextColor="White" Font="Bold"/>
-                            <Entry Placeholder="Enter Height" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                            <Entry Text="{Binding Height}" Placeholder="Enter Height" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Weight" TextColor="White" Font="Bold"/>
-                            <Entry Placeholder="Enter Weight" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
+                            <Entry Text="{Binding Weight}" Placeholder="Enter Weight" Keyboard="Telephone" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Sports Interest" TextColor="White" Font="Bold"/>
-                            <Picker Title="Select Sports" BackgroundColor="White" TextColor="Gray">
-                                  <Picker.Items>
-                                    <x:String>Cricket</x:String>
-                                    <x:String>Baseball</x:String>
-                                    <x:String>Football</x:String>
-                                    <x:String>Tennis</x:String>
-                                    <x:String>Table Tennis</x:String>
-                                    <x:String>Basketball</x:String>
-                                    <x:String>Swimming</x:String>
-                                    <x:String>Athletics</x:String>
-                                    <x:String>Others</x:String>
-                                  </Picker.Items>
+                            <Picker SelectedIndex="{Binding SportsIndex}" ItemsSource="{Binding SportsList}" Title="Select Sports" BackgroundColor="White" TextColor="Gray">
+                                  
                             </Picker>
                         </StackLayout>
 
                         <StackLayout Margin="20,0">
                             <Label Text="Medical Information" TextColor="White" Font="Bold"/>
-                            <Editor HeightRequest="50" TextColor="Gray" BackgroundColor="White"/>
+                            <Editor Text="{Binding MedicalInfo}" HeightRequest="50" TextColor="Gray" BackgroundColor="White"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -105,7 +88,7 @@
 
                     </StackLayout>-->
 
-                    <Button WidthRequest="120" Clicked="Handle_Clicked" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                    <Button WidthRequest="120" Command="{Binding SaveCommand}" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
                     
                 </StackLayout>
             </ScrollView>
