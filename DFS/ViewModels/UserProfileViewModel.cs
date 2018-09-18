@@ -9,11 +9,25 @@ namespace DFS
 {
     public class UserProfileViewModel : INotifyPropertyChanged
     {
-        
-        #region UserEmail
 
-        public string _username;
+        #region Prop
 
+        private string _selectedView;
+        public string SelectedView
+        {
+            get
+            {
+                return _selectedView;
+            }
+            set
+            {
+                _selectedView = value;
+
+                RaisePropertyChanged(nameof(SelectedView));
+            }
+        }
+
+        private string _username;
         public string Username
         {
         	get
@@ -38,39 +52,29 @@ namespace DFS
                 RaisePropertyChanged(nameof(UserPassword));
             }
         }
+
+        private Boolean _isRememberMe;
+        public Boolean IsRememberMe
+        {
+            get { return _isRememberMe; }
+            set
+            {
+                _isRememberMe = value;
+                RaisePropertyChanged(nameof(IsRememberMe));
+            }
+        }
+
         #endregion
 
-        private int _passwordStrength = 1;
-        public int PasswordStrength
-        {
-        	get { return _passwordStrength; }
-        	set
-        	{
-        		_passwordStrength = value;
-        		RaisePropertyChanged(nameof(PasswordStrength));
-        	}
-        }
-
-       
-
-
-        int JudgePasswordStrength(string userPassword)
-        {
-        	var result = PasswordAdvisor.CheckStrength(userPassword);
-        	return (int)result; // 1-5
-        }
-
-    	
-    	public ICommand SignUpCommand { get; private set; }        	
+        public ICommand SignUpCommand { get; private set; }        	
     	public ICommand LoginCommand { get; private set; }
     	
 
     	public UserProfileViewModel()
     	{
             
-            LoginCommand = new Command(async _ => await OnLogin());
-            SignUpCommand = new Command(async _ => await OnSignUp());
-
+            LoginCommand = new Command(() => OnLogin());
+            SignUpCommand = new Command(() => OnSignUp());
 
     	}
 
@@ -82,40 +86,27 @@ namespace DFS
 
         }
 
-        public async Task OnSignUp(){
+        public void OnSignUp(){
             MessagingCenter.Send<UserProfileViewModel>(this, "SignUp");
         }
 
-        public async Task OnLogin() {
+        public async void OnLogin() {
 
-            MessagingCenter.Send<UserProfileViewModel>(this, "LoginSuccess");
-            /* Commented for development
-            if (UserPassword != null && Username != null)
-            {
-                PasswordStrength = JudgePasswordStrength(UserPassword);
-
-                if (PasswordStrength >= 4)
-                {
-                    if (Username == "Gourav" && UserPassword == "Gourav@123")
-                    {
-                        MessagingCenter.Send<UserProfileViewModel>(this, "LoginSuccess");
-                    }
-                    else
-                    {
-                        DisplayAlert("Invalid Credentials", "Please provide correct credentials.");
-                    }
-                }
-                else
-                {
-                    DisplayAlert("Alert", "Password Strength is low. Please try again.");
-                }
+            if(Username == null || UserPassword == null || Username == "" || UserPassword == ""){
+                MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", "Please provide Username/Password");
             }
             else
             {
-                DisplayAlert("Alert", "Please enter Username/Password");
-            }*/
+                Models.LoginRequestModel loginRequestModel = new Models.LoginRequestModel("App", Username, SelectedView, UserPassword);
+                var message = await App.TodoManager.Login(loginRequestModel);
 
+                if(message == "Success"){
+                    MessagingCenter.Send<UserProfileViewModel>(this, "LoginSuccess");
+                }else{
+                    MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", message);
+                }
 
+            }
 
 
         }

@@ -23,46 +23,6 @@ namespace DFS
 			
 		}
 
-		public async Task<List<TodoItem>> RefreshDataAsync()
-		{
-			Items = new List<TodoItem>();
-            		
-
-			return Items;
-		}
-
-        public async Task<TodoItem> SaveTodoItemAsync(TodoItem item, bool isNewItem = false)
-		{
-			var uri = new Uri(string.Format("https://reqres.in/api/login", string.Empty));
-            var user = new TodoItem();
-			try
-			{
-				var json = JsonConvert.SerializeObject(item);
-				var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-				HttpResponseMessage response = null;
-				
-			    response = await client.PostAsync(uri, content);
-				
-
-				if (response.IsSuccessStatusCode)
-				{
-                    Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
-                    Debug.WriteLine("Response" + response.ToString());
-
-                    user.email = "@klaven";
-                     user.password = "cityslicka";
-
-				}
-
-
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(@"ERROR {0}", ex.Message);
-			}
-            return user;
-		}
 
         public async Task<string> SignUpAsync(TraineeSignupModel signupModel)
         {
@@ -82,8 +42,11 @@ namespace DFS
                 {
                     Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
                     Debug.WriteLine("Response" + response.ToString());
+                    return "Success";
 
-
+                }else
+                {
+                    return "Failure";
                 }
 
 
@@ -91,8 +54,45 @@ namespace DFS
             catch (Exception ex)
             {
                 Debug.WriteLine(@"ERROR {0}", ex.Message);
+                return "Failure";
             }
-            return "Success";
+
+        }
+
+        public async Task<string> LoginAsync(LoginRequestModel loginRequestModel)
+        {
+            var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/validateMember");
+
+            try
+            {
+                var json = JsonConvert.SerializeObject(loginRequestModel);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+
+                response = await client.PostAsync(uri, content);
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
+                    Debug.WriteLine("Response" + response.ToString());
+                    return "Success";
+
+                }
+                else
+                {
+                    return "Failure";
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"ERROR {0}", ex.Message);
+                return "Failure";
+            }
+
         }
     }
 }

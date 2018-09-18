@@ -22,18 +22,18 @@
                                 <!--    Username Entry   -->
                                 <StackLayout x:Name="userLayout" Margin="0,50,0,0" HeightRequest="40" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White">
                                     <Image Source="username" HeightRequest="20" WidthRequest="20" Margin="8,0" />
-                                    <Entry Keyboard="Email" TextColor="{StaticResource GreyTextColor}" FontSize="18"  HeightRequest="40" x:Name="usernameEntry" Placeholder="Username" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+                                    <Entry Text="{Binding Username}" Keyboard="Email" TextColor="{StaticResource GreyTextColor}" FontSize="18"  HeightRequest="40" x:Name="usernameEntry" Placeholder="Username" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
                                 </StackLayout>
                                 <!--    Password Entry   -->
                                 <StackLayout x:Name="passLayout" Margin="0,10,0,0" HeightRequest="40" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White">
                                     <Image Source="password" Margin="8,0" HeightRequest="20" WidthRequest="20" />
-                                    <Entry TextColor="{StaticResource GreyTextColor}" x:Name="passwordEntry" HeightRequest="40" Placeholder="Password" BackgroundColor="Transparent"  IsPassword="true" HorizontalOptions="FillAndExpand" />
+                                    <Entry Text="{Binding UserPassword}" TextColor="{StaticResource GreyTextColor}" x:Name="passwordEntry" HeightRequest="40" Placeholder="Password" BackgroundColor="Transparent"  IsPassword="true" HorizontalOptions="FillAndExpand" />
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal">
                                     <!-- Remember me Outer View  -->
                                     <StackLayout Orientation="Horizontal" Margin="0,5" Spacing="0">
-                                        <Switch />
+                                        <Switch IsToggled="{Binding IsRememberMe}" />
                                         <Label Text="Remember Me" TextColor="White" Margin="10,0" FontSize="13" VerticalOptions="Center"/>
                                     </StackLayout>
 
@@ -42,7 +42,7 @@
                                 </StackLayout>
                             
                                 <!--    Login Button   -->
-                                <Button Clicked="Handle_LogInClickedAsync" Margin="0,10,0,0" Font="18" FontAttributes="Bold" HeightRequest="40" Text="LOG IN" Opacity="1" VerticalOptions="StartAndExpand" MinimumHeightRequest="100" BackgroundColor="{StaticResource WhiteColor}" TextColor="{StaticResource GreyTextColor}" BorderRadius="5" />
+                                <Button Command="{Binding LoginCommand}" Margin="0,10,0,0" Font="18" FontAttributes="Bold" HeightRequest="40" Text="LOG IN" Opacity="1" VerticalOptions="StartAndExpand" MinimumHeightRequest="100" BackgroundColor="{StaticResource WhiteColor}" TextColor="{StaticResource GreyTextColor}" BorderRadius="5" />
             					
             				</StackLayout>
 

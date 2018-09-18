@@ -13,19 +13,14 @@ namespace DFS
 			restService = service;
 		}
 
-		public Task<List<TodoItem>> GetTasksAsync ()
-		{
-			return restService.RefreshDataAsync ();	
-		}
-
-        public Task<TodoItem> SaveTaskAsync (TodoItem item, bool isNewItem = false)
-		{
-			return restService.SaveTodoItemAsync (item, isNewItem);
-		}
-
         public Task<String> SignUp(Models.TraineeSignupModel signupModel){
             return restService.SignUpAsync(signupModel);
         }
-        		
-	}
+
+        public Task<String> Login(Models.LoginRequestModel loginRequestModel)
+        {
+            return restService.LoginAsync(loginRequestModel);
+        }
+
+    }
 }
