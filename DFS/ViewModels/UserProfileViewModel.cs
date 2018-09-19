@@ -100,9 +100,13 @@ namespace DFS
                 Models.LoginRequestModel loginRequestModel = new Models.LoginRequestModel("App", Username, SelectedView, UserPassword);
                 var message = await App.TodoManager.Login(loginRequestModel);
 
-                if(message == "Success"){
-                    MessagingCenter.Send<UserProfileViewModel>(this, "LoginSuccess");
-                }else{
+                if(message == "NAV"){
+                    MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "NAV");
+                }else if (message == "AV")
+                {
+                    MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "AV");
+                }
+                else{
                     MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", message);
                 }
 

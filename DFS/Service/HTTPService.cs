@@ -7,21 +7,28 @@ using System.Text;
 using System.Threading.Tasks;
 using DFS.Models;
 using Newtonsoft.Json;
+using SQLite;
+using Xamarin.Forms;
 
 namespace DFS
 {
     public class HTTPService : IRestService
 	{
 		HttpClient client;
-
-		public List<TodoItem> Items { get; private set; }
+        SQLiteConnection db;
 
         public HTTPService()
 		{			
 			client = new HttpClient();
 			client.MaxResponseContentBufferSize = 256000;
-			
-		}
+
+            // DatabaseIntegration
+            var databasePath = DependencyService.Get<IPlatformPath>().GetPlatformPath("Fitness.db");
+            db = new SQLiteConnection(databasePath);
+
+            db.CreateTable<LoginResponse.SyncLoginResponse>();
+
+        }
 
 
         public async Task<string> SignUpAsync(TraineeSignupModel signupModel)
@@ -75,9 +82,39 @@ namespace DFS
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
-                    Debug.WriteLine("Response" + response.ToString());
-                    return "Success";
+                    var responseJson = response.Content.ReadAsStringAsync().Result;
+                    LoginResponse responseItem = JsonConvert.DeserializeObject<Models.LoginResponse>(responseJson);
+
+                    LoginResponse.SyncLoginResponse syncLoginResponse;
+
+                    foreach(var item in responseItem.member){
+
+                        syncLoginResponse = new LoginResponse.SyncLoginResponse();
+
+                        syncLoginResponse.Status = item.Status;
+                        syncLoginResponse.Profile = item.Profile;
+                        syncLoginResponse.SignUpMetod = item.SignUpMetod;
+                        syncLoginResponse.Password = item.Password;
+                        syncLoginResponse.Email = item.Email;
+                        syncLoginResponse.Name = item.basicInfo.Name;
+                        syncLoginResponse.Gender = item.basicInfo.Gender;
+                        syncLoginResponse.Country = item.basicInfo.Country;
+                        syncLoginResponse.State = item.basicInfo.State;
+                        syncLoginResponse.Address = item.basicInfo.Address;
+                        syncLoginResponse.ImageUrl = item.basicInfo.ImageUrl;
+                        syncLoginResponse.PhoneNumber = item.basicInfo.PhoneNumber;
+                        syncLoginResponse.InstaGramId = item.basicInfo.InstaGramId;
+                        syncLoginResponse.Latitude = item.basicInfo.Latitude;
+                        syncLoginResponse.Longitude = item.basicInfo.Longitude;
+                        syncLoginResponse.DeletionFlag = item.basicInfo.DeletionFlag;
+                        syncLoginResponse.Speciality = item.professionalInfo.Speciality;
+                        syncLoginResponse.Experience = item.professionalInfo.Experience;
+                        syncLoginResponse.Accolades = item.professionalInfo.Accolades;
+
+                        db.Insert(syncLoginResponse);
+                    }
+
+                    return responseItem.member[0].Status;
 
                 }
                 else

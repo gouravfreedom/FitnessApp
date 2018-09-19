@@ -191,6 +191,9 @@
     <Compile Include="Models\TraineeSignupModel.cs" />
     <Compile Include="ViewModels\SignupViewModel.cs" />
     <Compile Include="Models\LoginRequestModel.cs" />
+    <Compile Include="Models\LoginResponse.cs" />
+    <Compile Include="Service\DatabaseService.cs" />
+    <Compile Include="Service\DatabaseManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

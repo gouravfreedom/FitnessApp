@@ -19,11 +19,17 @@ namespace DFS
             BindingContext = userProfileViewModel = new UserProfileViewModel();
             userProfileViewModel.SelectedView = _selectedView;
 
-            MessagingCenter.Subscribe<UserProfileViewModel>(this, "LoginSuccess", async (sender) =>
+            MessagingCenter.Subscribe<UserProfileViewModel, String>(this, "LoginSuccess", async (sender, message) =>
             {
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginSuccess");
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginFailure");
-                await this.Navigation.PushAsync(new Views.UserInformationPage());
+                if (message == "NAV")
+                {
+                    await this.Navigation.PushAsync(new Views.UserInformationPage());
+                }
+                else{
+                    await this.Navigation.PushAsync(new RootPage());
+                }
             });
 
             MessagingCenter.Subscribe<UserProfileViewModel, string>(this, "LoginFailure", async (sender, message) =>

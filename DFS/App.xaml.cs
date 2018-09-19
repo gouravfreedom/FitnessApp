@@ -6,11 +6,15 @@ namespace DFS
     {
         public static TodoItemManager TodoManager { get; private set; }
 
+        public static Service.DatabaseManager DatabaseManager { get; private set; }
+
         public App()
         {
             InitializeComponent();
 
             TodoManager = new TodoItemManager(new HTTPService());
+
+            DatabaseManager = new Service.DatabaseManager(new Service.DatabaseService());
 
             MainPage = new NavigationPage( new Views.SelectionPage());
         }
