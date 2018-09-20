@@ -25,7 +25,7 @@ namespace DFS
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginFailure");
                 if (message == "NAV")
                 {
-                    await this.Navigation.PushAsync(new Views.UserInformationPage());
+                    await this.Navigation.PushAsync(new Views.SignUp(_selectedView));
                 }
                 else{
                     await this.Navigation.PushAsync(new RootPage());

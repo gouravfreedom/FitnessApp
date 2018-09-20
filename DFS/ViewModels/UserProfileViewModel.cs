@@ -64,6 +64,17 @@ namespace DFS
             }
         }
 
+        private Boolean _isServiceInProgress;
+        public Boolean IsServiceInProgress
+        {
+            get { return _isServiceInProgress; }
+            set
+            {
+                _isServiceInProgress = value;
+                RaisePropertyChanged(nameof(IsServiceInProgress));
+            }
+        }
+
         #endregion
 
         public ICommand SignUpCommand { get; private set; }        	
@@ -97,6 +108,8 @@ namespace DFS
             }
             else
             {
+                IsServiceInProgress = true;
+                
                 Models.LoginRequestModel loginRequestModel = new Models.LoginRequestModel("App", Username, SelectedView, UserPassword);
                 var message = await App.TodoManager.Login(loginRequestModel);
 
@@ -115,6 +128,8 @@ namespace DFS
                 else{
                     MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", message);
                 }
+
+                IsServiceInProgress = false;
 
             }
 

@@ -6,9 +6,9 @@
             <StackLayout VerticalOptions="StartAndExpand" Margin="10, 30, 10, 10">
                 
                 <Label Text="Email address" TextColor="White"  />
-                <Entry x:Name="emailEntry" Placeholder="Email Address" />
+                <Entry x:Name="emailEntry" Text="{Binding EmailAddress}" Placeholder="Email Address" />
                 <Label Text="Password" TextColor="White" />
-                <Entry x:Name="passwordEntry" IsPassword="true" Placeholder="Password" />
+                <Entry x:Name="passwordEntry" Text="{Binding Password}" IsPassword="true" Placeholder="Password" />
                 <Label Text="Confirm Password" TextColor="White" />
                 <Entry x:Name="confirmPasswordEntry" IsPassword="true" Placeholder="Confirm Password" />
 

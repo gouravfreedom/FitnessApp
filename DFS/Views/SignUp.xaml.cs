@@ -7,18 +7,20 @@ namespace DFS.Views
 {
     public partial class SignUp : ContentPage
     {
-        String SelectedView;
+        ViewModels.SignupViewModel signupViewModel;
         public SignUp(String _selectedView)
         {
-            SelectedView = _selectedView;
             InitializeComponent();
+
+            BindingContext = signupViewModel = new ViewModels.SignupViewModel();
+
+            signupViewModel.SelectedView = _selectedView;
+
         }
 
         async void OnSignUpButtonClicked(object sender, EventArgs e)
         {
-            //await DisplayAlert("Success", "Sign up successful", "OK");
-
-            await this.Navigation.PushAsync(new UserInformationPage());
+            await this.Navigation.PushAsync(new UserInformationPage(signupViewModel));
 
         }
     }

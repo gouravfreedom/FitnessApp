@@ -11,6 +11,7 @@
                     AbsoluteLayout.LayoutFlags="All"
                     BackgroundColor="{StaticResource BackColor}"></StackLayout>
 			
+              <!--     Actual Body       -->
 			  <StackLayout
 		            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
 		            AbsoluteLayout.LayoutFlags="All">
@@ -150,7 +151,32 @@
                    <Label Text="Copyright© 2018 All rights Reserved | Template by IndoMex" TextColor="{StaticResource WhiteColor}" FontSize="10" Grid.Column="0"  HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,0,0,10" ></Label>
 		            
 		       </StackLayout>
+               <!--End of actual body-->
+            
+              
+            
+                 <StackLayout
+                        IsVisible="{Binding IsServiceInProgress}"
+                        BackgroundColor="Black" 
+                        Opacity="0.5"
+                        AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                        AbsoluteLayout.LayoutFlags="All" >
+                
+                 </StackLayout>
 
+                <StackLayout IsVisible="{Binding IsServiceInProgress}"
+                             Padding="12"
+                     AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                    AbsoluteLayout.LayoutFlags="All" >
+                    
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                       <ActivityIndicator IsRunning="true" Color="{StaticResource GreenColor}"/>
+
+                       <Label Text="Logging In..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}"/>
+                    </StackLayout>
+                </StackLayout>
+            
+            
     		</AbsoluteLayout>
 		</ContentPage.Content>
 </ContentPage>
