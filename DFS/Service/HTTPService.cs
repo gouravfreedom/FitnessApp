@@ -79,6 +79,7 @@ namespace DFS
 
                 response = await client.PostAsync(uri, content);
 
+                db.Query<LoginResponse.SyncLoginResponse>("DELETE FROM SYNC_LOGIN");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -114,7 +115,7 @@ namespace DFS
                         db.Insert(syncLoginResponse);
                     }
 
-                    return responseItem.member[0].Status;
+                    return "Success";
 
                 }
                 else
@@ -130,6 +131,11 @@ namespace DFS
                 return "Failure";
             }
 
+        }
+
+        public LoginResponse.SyncLoginResponse LoginResponse(string SelectedInput)
+        {
+            throw new NotImplementedException();
         }
     }
 }

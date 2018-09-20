@@ -10,5 +10,7 @@ namespace DFS
         Task<String> SignUpAsync(Models.TraineeSignupModel signupModel);
 
         Task<String> LoginAsync(Models.LoginRequestModel loginRequestModel);
+
+        Models.LoginResponse.SyncLoginResponse LoginResponse(String SelectedInput);
     }
 }

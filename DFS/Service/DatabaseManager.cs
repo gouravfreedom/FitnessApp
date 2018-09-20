@@ -9,5 +9,10 @@ namespace DFS.Service
         {
             restService = service;
         }
+
+        public Models.LoginResponse.SyncLoginResponse SyncLoginResponse(string SelectedInput)
+        {
+            return restService.LoginResponse(SelectedInput);
+        }
     }
 }
