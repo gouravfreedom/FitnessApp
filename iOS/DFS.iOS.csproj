@@ -217,6 +217,7 @@
     <Folder Include="Assets.xcassets\password.imageset\" />
     <Folder Include="Assets.xcassets\facebook.imageset\" />
     <Folder Include="Assets.xcassets\instagram.imageset\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -234,6 +235,7 @@
     <Compile Include="Utils\Camera.cs" />
     <Compile Include="ISignService.cs" />
     <Compile Include="MarkingViewRenderer.cs" />
+    <Compile Include="Controls\CornerLayout_iOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\truck.png" />
@@ -306,6 +308,7 @@
     <BundleResource Include="Resources\profile4.jpeg" />
     <BundleResource Include="Resources\profile5.jpeg" />
     <BundleResource Include="Resources\roger.jpeg" />
+    <BundleResource Include="Resources\defaultIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets')" />

@@ -194,6 +194,7 @@
     <Compile Include="Models\LoginResponse.cs" />
     <Compile Include="Service\DatabaseService.cs" />
     <Compile Include="Service\DatabaseManager.cs" />
+    <Compile Include="Controls\CornerLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

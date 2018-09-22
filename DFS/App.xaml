@@ -19,8 +19,9 @@
             <Color x:Key="CircleColor">#3F9451</Color>
             <Color x:Key="GreyTextColor">#666666</Color>
             <Color x:Key="OutlineColor">#e0e0e0</Color>
-            <Color x:Key="BackColor">#181113</Color>
-            <Color x:Key="InstaColor">#B71618</Color>
+            <Color x:Key="BackColor">#191613</Color>
+            <Color x:Key="InstaColor">#7c1a2c</Color>
+            <Color x:Key="fbColor">#2b4088</Color>
             <Color x:Key="GreenColor">#8BCB0B</Color>
 
 

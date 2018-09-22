@@ -152,9 +152,9 @@ namespace DFS.ViewModels
             }
         }
 
-        private int _telephoneNumber { get; set; }
+        private String _telephoneNumber { get; set; }
 
-        public int TelephoneNumber
+        public String TelephoneNumber
         {
             get
             {
@@ -168,9 +168,9 @@ namespace DFS.ViewModels
             }
         }
 
-        private float _height { get; set; }
+        private String _height { get; set; }
 
-        public float Height
+        public String Height
         {
             get
             {
@@ -184,9 +184,9 @@ namespace DFS.ViewModels
             }
         }
 
-        private float _weight { get; set; }
+        private String _weight { get; set; }
 
-        public float Weight
+        public String Weight
         {
             get
             {
