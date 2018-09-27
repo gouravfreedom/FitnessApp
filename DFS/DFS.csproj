@@ -195,6 +195,9 @@
     <Compile Include="Service\DatabaseService.cs" />
     <Compile Include="Service\DatabaseManager.cs" />
     <Compile Include="Controls\CornerLayout.cs" />
+    <Compile Include="ViewModels\TrainerListViewModel.cs" />
+    <Compile Include="Models\TrainerListModel.cs" />
+    <Compile Include="Models\TrainerListRequestModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -311,6 +314,12 @@
     </Reference>
     <Reference Include="Syncfusion.SfListView.XForms">
       <HintPath>..\packages\Syncfusion.Xamarin.SfListView.16.1.0.37\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.SfListView.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\netstandard1.0\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\netstandard1.0\Plugin.Connectivity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

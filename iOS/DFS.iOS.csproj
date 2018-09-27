@@ -173,6 +173,12 @@
     <Reference Include="Syncfusion.SfListView.XForms.iOS">
       <HintPath>..\packages\Syncfusion.Xamarin.SfListView.16.1.0.37\lib\Xamarin.iOS10\Syncfusion.SfListView.XForms.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DFS\DFS.csproj">

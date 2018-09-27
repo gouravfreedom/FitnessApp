@@ -41,19 +41,19 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Too much special</string>
+	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Special Data</string>
+	<string></string>
 	<key>NSCameraUsageDescription</key>
-	<string>New Entdfgdfgdfggdry   sf</string>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>New Entryfghfghfghfgh egdfhdfgh</string>
+	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>New Entrysfsdfdsfdsfdsf afdsfsdfsd</string>
+	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>sfgsgs fdsf fadfsdsf</string>
+	<string></string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Location thing </string>
+	<string></string>
 	<key>Custom Property</key>
 	<string></string>
 	<key>CFBundleName</key>

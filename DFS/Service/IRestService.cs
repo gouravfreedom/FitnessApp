@@ -11,6 +11,8 @@ namespace DFS
 
         Task<String> LoginAsync(Models.LoginRequestModel loginRequestModel);
 
+        Task<Models.TrainerListModel> FetchTrainerList();
+
         Models.LoginResponse.SyncLoginResponse LoginResponse(String SelectedInput);
     }
 }

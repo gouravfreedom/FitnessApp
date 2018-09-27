@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DFS.Models;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
 using SQLite;
 using Xamarin.Forms;
 
@@ -30,112 +31,180 @@ namespace DFS
 
         }
 
+        public async Task<TrainerListModel> FetchTrainerList()
+        {
+            TrainerListModel trainerListModel = new TrainerListModel();
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/traineelist");
+
+                try
+                {
+                    var json = JsonConvert.SerializeObject(new TrainerListModel());
+                    var content = new StringContent("{}", Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = null;
+
+                    response = await client.PostAsync(uri, content);
+
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
+                        Debug.WriteLine("Response" + response.ToString());
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        trainerListModel = JsonConvert.DeserializeObject<TrainerListModel>(responseJson);
+
+                        return trainerListModel;
+                    }
+                    else
+                    {
+                        return trainerListModel;
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return trainerListModel;
+                }
+            }
+            else
+            {
+                return trainerListModel;
+            }
+
+        }
+
 
         public async Task<string> SignUpAsync(TraineeSignupModel signupModel)
         {
-            var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/signup");
-
-            try
+            if (CrossConnectivity.Current.IsConnected)
             {
-                var json = JsonConvert.SerializeObject(signupModel);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/signup");
 
-                HttpResponseMessage response = null;
-
-                response = await client.PostAsync(uri, content);
-
-
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
-                    Debug.WriteLine("Response" + response.ToString());
-                    return "Success";
+                    var json = JsonConvert.SerializeObject(signupModel);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                }else
-                {
-                    return "Failure";
+                    HttpResponseMessage response = null;
+
+                    response = await client.PostAsync(uri, content);
+
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
+                        Debug.WriteLine("Response" + response.ToString());
+                        return "Success";
+
+                    }
+                    else
+                    {
+                        return "Internal Server Error. Please try again.";
+                    }
+
+
                 }
-
-
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return "Internal Server Error. Please try again.";
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine(@"ERROR {0}", ex.Message);
-                return "Failure";
+                return "Internet Connectivity error. Please try again.";
             }
 
         }
 
         public async Task<string> LoginAsync(LoginRequestModel loginRequestModel)
         {
-            var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/validateMember");
-
-            try
+            if (CrossConnectivity.Current.IsConnected)
             {
-                var json = JsonConvert.SerializeObject(loginRequestModel);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = null;
+                var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/validateMember");
 
-                response = await client.PostAsync(uri, content);
-
-                db.Query<LoginResponse.SyncLoginResponse>("DELETE FROM SYNC_LOGIN");
-
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    var responseJson = response.Content.ReadAsStringAsync().Result;
-                    LoginResponse responseItem = JsonConvert.DeserializeObject<Models.LoginResponse>(responseJson);
+                    var json = JsonConvert.SerializeObject(loginRequestModel);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                    LoginResponse.SyncLoginResponse syncLoginResponse;
+                    HttpResponseMessage response = null;
 
-                    foreach(var item in responseItem.member){
+                    response = await client.PostAsync(uri, content);
 
-                        syncLoginResponse = new LoginResponse.SyncLoginResponse();
+                    db.Query<LoginResponse.SyncLoginResponse>("DELETE FROM SYNC_LOGIN");
 
-                        syncLoginResponse.Status = item.Status;
-                        syncLoginResponse.Profile = item.Profile;
-                        syncLoginResponse.SignUpMetod = item.SignUpMetod;
-                        syncLoginResponse.Password = item.Password;
-                        syncLoginResponse.Email = item.Email;
-                        syncLoginResponse.Name = item.basicInfo.Name;
-                        syncLoginResponse.Gender = item.basicInfo.Gender;
-                        syncLoginResponse.Country = item.basicInfo.Country;
-                        syncLoginResponse.State = item.basicInfo.State;
-                        syncLoginResponse.Address = item.basicInfo.Address;
-                        syncLoginResponse.ImageUrl = item.basicInfo.ImageUrl;
-                        syncLoginResponse.PhoneNumber = item.basicInfo.PhoneNumber;
-                        syncLoginResponse.InstaGramId = item.basicInfo.InstaGramId;
-                        syncLoginResponse.Latitude = item.basicInfo.Latitude;
-                        syncLoginResponse.Longitude = item.basicInfo.Longitude;
-                        syncLoginResponse.DeletionFlag = item.basicInfo.DeletionFlag;
-                        syncLoginResponse.Speciality = item.professionalInfo.Speciality;
-                        syncLoginResponse.Experience = item.professionalInfo.Experience;
-                        syncLoginResponse.Accolades = item.professionalInfo.Accolades;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        LoginResponse responseItem = JsonConvert.DeserializeObject<Models.LoginResponse>(responseJson);
 
-                        db.Insert(syncLoginResponse);
+                        LoginResponse.SyncLoginResponse syncLoginResponse;
+
+                        foreach (var item in responseItem.member)
+                        {
+
+                            syncLoginResponse = new LoginResponse.SyncLoginResponse();
+
+                            syncLoginResponse.Status = item.Status;
+                            syncLoginResponse.Profile = item.Profile;
+                            syncLoginResponse.SignUpMetod = item.SignUpMetod;
+                            syncLoginResponse.Password = item.Password;
+                            syncLoginResponse.Email = item.Email;
+                            syncLoginResponse.Name = item.basicInfo.Name;
+                            syncLoginResponse.Gender = item.basicInfo.Gender;
+                            syncLoginResponse.Country = item.basicInfo.Country;
+                            syncLoginResponse.State = item.basicInfo.State;
+                            syncLoginResponse.Address = item.basicInfo.Address;
+                            syncLoginResponse.ImageUrl = item.basicInfo.ImageUrl;
+                            syncLoginResponse.PhoneNumber = item.basicInfo.PhoneNumber;
+                            syncLoginResponse.InstaGramId = item.basicInfo.InstaGramId;
+                            syncLoginResponse.Latitude = item.basicInfo.Latitude;
+                            syncLoginResponse.Longitude = item.basicInfo.Longitude;
+                            syncLoginResponse.DeletionFlag = item.basicInfo.DeletionFlag;
+                            syncLoginResponse.Speciality = item.professionalInfo.Speciality;
+                            syncLoginResponse.Experience = item.professionalInfo.Experience;
+                            syncLoginResponse.Accolades = item.professionalInfo.Accolades;
+
+                            db.Insert(syncLoginResponse);
+                        }
+
+                        return "Success";
+
+                    }
+                    else
+                    {
+                        return "Internal Server Error. Please try again.";
                     }
 
-                    return "Success";
 
                 }
-                else
+                catch (Exception ex)
                 {
-                    return "Failure";
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return "Internal Server Error. Please try again.";
                 }
-
-
-            }
-            catch (Exception ex)
+            }else
             {
-                Debug.WriteLine(@"ERROR {0}", ex.Message);
-                return "Failure";
+                return "Internet Connectivity error. Please try again.";
             }
 
         }
+        /*
+         * Not implementated methods
+        */
 
         public LoginResponse.SyncLoginResponse LoginResponse(string SelectedInput)
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

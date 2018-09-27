@@ -21,11 +21,11 @@
                                 <!-- Image View -->
                                 <StackLayout Orientation="Horizontal">
                                     <Frame CornerRadius="10" Padding="0" Margin="20,0">
-                                        <Image Source="defaultIcon.png" HorizontalOptions="Start" HeightRequest="120" WidthRequest="120" />
+                                        <Image Source="{Binding UserIcon}" HorizontalOptions="Start" HeightRequest="120" WidthRequest="120" />
                                     </Frame>
                                     <Label Text="Upload Photo" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="White">
                                         <Label.GestureRecognizers>
-                                            
+                                            <TapGestureRecognizer />
                                         </Label.GestureRecognizers>
                                     </Label>
 

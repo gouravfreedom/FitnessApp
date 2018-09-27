@@ -22,5 +22,10 @@ namespace DFS
             return restService.LoginAsync(loginRequestModel);
         }
 
+        public Task<Models.TrainerListModel> FetchTrainerList()
+        {
+            return restService.FetchTrainerList();
+        }
+
     }
 }

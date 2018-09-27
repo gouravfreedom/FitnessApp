@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
+using Plugin.Media;
 
 namespace DFS.ViewModels
 {
@@ -248,6 +249,22 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _userIcon { get; set; }
+
+        public String UserIcon
+        {
+            get
+            {
+                return _userIcon;
+            }
+            set
+            {
+                _userIcon = value;
+
+                RaisePropertyChanged(nameof(UserIcon));
+            }
+        }
+
         private Boolean _isServiceInProgress;
         public Boolean IsServiceInProgress
         {
@@ -260,6 +277,12 @@ namespace DFS.ViewModels
         }
 
         public ICommand SaveCommand { get; set; }
+        public ICommand PictureCommand { get; set; }
+
+         void SelectImage()
+        {
+
+        }
 
         public SignupViewModel()
         {
@@ -286,8 +309,12 @@ namespace DFS.ViewModels
 
             // Intialize commands
             SaveCommand = new Command(() => SaveClicked());
+            PictureCommand = new Command(() => SelectImage());
 
             _isServiceInProgress = false;
+
+            _dateOfBirth = new DateTime(2000, 1, 1);
+
 
         }
 

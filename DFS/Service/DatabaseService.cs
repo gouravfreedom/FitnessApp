@@ -46,7 +46,9 @@ namespace DFS.Service
             throw new NotImplementedException();
         }
 
-
-
+        public Task<TrainerListModel> FetchTrainerList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

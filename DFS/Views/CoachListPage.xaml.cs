@@ -10,16 +10,9 @@ namespace DFS.Views
         public CoachListPage()
         {
             InitializeComponent();
+
+            BindingContext = new ViewModels.TrainerListViewModel();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            ObservableCollection<Models.Coach> items = CoachList.GetCoachList();
-
-            ItemsListView.ItemsSource = items;
-
-        }
     }
 }

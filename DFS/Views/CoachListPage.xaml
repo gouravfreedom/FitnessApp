@@ -1,31 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.CoachListPage">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource BackColor}">
-            <Image Margin="-6,0,0,0" HeightRequest="40" WidthRequest="40" Source="home_icon.png"/>
-
-            <Entry BackgroundColor="{StaticResource LightBackgroundColor}" Margin="40,0" Placeholder="Example, Scuba Diving" HorizontalTextAlignment="Start" TextColor="{StaticResource MediumGrayTextColor}" />
+        
+        <RelativeLayout>
+        <!-- Outer View -->
+            <StackLayout Spacing="0" x:Name="outerLayout" 
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,Factor=0,Constant=0}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
             
-            <ListView x:Name="ItemsListView" VerticalOptions="FillAndExpand" HasUnevenRows="true">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image HeightRequest="80" WidthRequest="80" Margin="0,20,0,0" Source="{Binding ImageName}"/>
-                                    <StackLayout>
-                                        <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
-                                        <Label Text="{Binding Rating}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />        
-                                        <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemTextStyle}" Font="Italic" FontSize="16" />    
+                <StackLayout BackgroundColor="{StaticResource BackColor}">
+                    <Image Margin="-6,0,0,0" HeightRequest="40" WidthRequest="40" Source="home_icon.png"/>
+
+                    <Entry BackgroundColor="{StaticResource LightBackgroundColor}" Margin="40,0" Placeholder="Example, Scuba Diving" HorizontalTextAlignment="Start" TextColor="{StaticResource MediumGrayTextColor}" />
+                    
+                    <ListView x:Name="ItemsListView" ItemsSource="{Binding ListViewData}" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame 
+                                                    CornerRadius="40"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    IsClippedToBounds="true"
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    WidthRequest="80"
+                                                    MinimumWidthRequest="80"
+                                                    MinimumHeightRequest="80"
+                                                    HeightRequest="80">
+                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="{Binding ImageUrl}"/>
+                                            </Frame>
+                                            <StackLayout MinimumHeightRequest="100" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                <Label Text="{Binding Rating}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />        
+                                                <Label Text="{Binding SportsInterest}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemTextStyle}" Font="Italic" FontSize="16" />    
+                                                
+                                            </StackLayout>
+                                        </StackLayout>
 
                                     </StackLayout>
-                                </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            
+            
+            <StackLayout
+                    IsVisible="{Binding IsServiceInProgress}"
+                    BackgroundColor="Black" Opacity="0.5"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                            ElementName=outerLayout,Property=Height,Factor=0,Constant=0}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+            
+             </StackLayout>
 
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+            <StackLayout IsVisible="{Binding IsServiceInProgress}" Padding="12"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Height,Factor=0.5,Constant=0}"
+                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                    ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                RelativeLayout.HeightConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+
+               <ActivityIndicator IsRunning="true" Color ="{StaticResource GreenColor}"/>
+
+               <Label Text="Loading..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}"/>
+            </StackLayout>
+            
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
