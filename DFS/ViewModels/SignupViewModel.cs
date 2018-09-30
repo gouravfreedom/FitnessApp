@@ -6,11 +6,28 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 using Plugin.Media;
+using System.Collections.Generic;
 
 namespace DFS.ViewModels
 {
     public class SignupViewModel : INotifyPropertyChanged
     {
+        private Boolean _isTrainerView { get; set; }
+
+        public Boolean IsTrainerView
+        {
+            get
+            {
+                return _isTrainerView;
+            }
+            set
+            {
+                _isTrainerView = value;
+
+                RaisePropertyChanged(nameof(IsTrainerView));
+            }
+        }
+
         private ObservableCollection<String> _titleList { get; set; }
 
         public ObservableCollection<String> TitleList
@@ -233,6 +250,38 @@ namespace DFS.ViewModels
             }
         }
 
+        private ObservableCollection<String> _specialityList { get; set; }
+
+        public ObservableCollection<String> SpecialityList
+        {
+            get
+            {
+                return _specialityList;
+            }
+            set
+            {
+                _specialityList = value;
+
+                RaisePropertyChanged(nameof(SpecialityList));
+            }
+        }
+
+        private int _specialityIndex { get; set; }
+
+        public int SpecialityIndex
+        {
+            get
+            {
+                return _specialityIndex;
+            }
+            set
+            {
+                _specialityIndex = value;
+
+                RaisePropertyChanged(nameof(SpecialityIndex));
+            }
+        }
+
         private String _medicalInfo { get; set; }
 
         public String MedicalInfo
@@ -262,6 +311,102 @@ namespace DFS.ViewModels
                 _userIcon = value;
 
                 RaisePropertyChanged(nameof(UserIcon));
+            }
+        }
+
+        private String _experience { get; set; }
+
+        public String Experience
+        {
+            get
+            {
+                return _experience;
+            }
+            set
+            {
+                _experience = value;
+
+                RaisePropertyChanged(nameof(Experience));
+            }
+        }
+
+        private String _accolades { get; set; }
+
+        public String Accolades
+        {
+            get
+            {
+                return _accolades;
+            }
+            set
+            {
+                _accolades = value;
+
+                RaisePropertyChanged(nameof(Accolades));
+            }
+        }
+
+        private String _certification { get; set; }
+
+        public String Certification
+        {
+            get
+            {
+                return _certification;
+            }
+            set
+            {
+                _certification = value;
+
+                RaisePropertyChanged(nameof(Certification));
+            }
+        }
+
+        private String _services { get; set; }
+
+        public String Services
+        {
+            get
+            {
+                return _services;
+            }
+            set
+            {
+                _services = value;
+
+                RaisePropertyChanged(nameof(Services));
+            }
+        }
+
+        private String _servicesPrice { get; set; }
+
+        public String ServicesPrice
+        {
+            get
+            {
+                return _servicesPrice;
+            }
+            set
+            {
+                _servicesPrice = value;
+
+                RaisePropertyChanged(nameof(ServicesPrice));
+            }
+        }
+
+        private String _serviceInfo { get; set; }
+
+        public String ServiceInfo
+        {
+            get
+            {
+                return _serviceInfo;
+            }
+            set
+            {
+                _serviceInfo = value;
+
+                RaisePropertyChanged(nameof(ServiceInfo));
             }
         }
 
@@ -306,6 +451,20 @@ namespace DFS.ViewModels
             _sportsList.Add("Athletics");
             _sportsList.Add("Others");
 
+            _specialityList = new ObservableCollection<String>();
+            _specialityList.Add("Cricket");
+            _specialityList.Add("Baseball");
+            _specialityList.Add("Football");
+            _specialityList.Add("Tennis");
+            _specialityList.Add("Table Tennis");
+            _specialityList.Add("Basketball");
+            _specialityList.Add("Swimming");
+            _specialityList.Add("Athletics");
+            _specialityList.Add("Others");
+
+            _userIcon = "defaultIcon.png";
+
+            _isTrainerView = false;
 
             // Intialize commands
             SaveCommand = new Command(() => SaveClicked());
@@ -352,8 +511,35 @@ namespace DFS.ViewModels
             basicInfo.valueAdded = "dsfjk";
             basicInfo.weight = Weight + "";
 
-            signupModel.basicInfo = basicInfo;
+            Models.TraineeSignupModel.ProfessionalInfo professionalInfo = new Models.TraineeSignupModel.ProfessionalInfo();
+            professionalInfo.speciality = SpecialityList[SpecialityIndex];
+            professionalInfo.experience = Experience;
+            professionalInfo.accolades = Accolades;
 
+            // Add certificates
+            List<Models.TraineeSignupModel.Certifications> certifications = new List<Models.TraineeSignupModel.Certifications>();
+            Models.TraineeSignupModel.Certifications certification = new Models.TraineeSignupModel.Certifications();
+            certification.certification = Certification;
+
+            certifications.Add(certification);
+
+            professionalInfo.certifications = certifications;
+
+            // Add Services
+            List<Models.TraineeSignupModel.Services> services = new List<Models.TraineeSignupModel.Services>();
+            Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
+            service.chargingPeriod = "hours";
+            service.serviceName = Services;
+            service.charges = 10;
+
+            services.Add(service);
+
+            professionalInfo.services = services;
+
+
+            // Creating the final object
+            signupModel.basicInfo = basicInfo;
+            signupModel.professionalInfo = professionalInfo;
 
             var message = await App.TodoManager.SignUp(signupModel);
 

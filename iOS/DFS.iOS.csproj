@@ -69,7 +69,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: Gourav Punyani (3847ZA73HM)</CodesignKey>
+    <CodesignKey>iPhone Developer: gouravpunyani@gmail.com (YAGPV89L8U)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
@@ -80,7 +80,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: com.indomex.fitness</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -215,6 +215,9 @@
     <ImageAsset Include="Assets.xcassets\instagram.imageset\3x-38.png" />
     <ImageAsset Include="Assets.xcassets\instagram.imageset\2x-21.png" />
     <ImageAsset Include="Assets.xcassets\instagram.imageset\1x-04.png" />
+    <ImageAsset Include="Assets.xcassets\plus_green.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\plus_green.imageset\1x-14.png" />
+    <ImageAsset Include="Assets.xcassets\plus_green.imageset\Sin título-2-13.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -224,6 +227,7 @@
     <Folder Include="Assets.xcassets\facebook.imageset\" />
     <Folder Include="Assets.xcassets\instagram.imageset\" />
     <Folder Include="Controls\" />
+    <Folder Include="Assets.xcassets\plus_green.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

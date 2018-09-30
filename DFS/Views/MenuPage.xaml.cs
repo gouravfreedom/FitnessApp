@@ -37,7 +37,7 @@ namespace DFS
                             new HomeMenuItem { Title = "Legal", MenuType = MenuType.CoachList, Icon ="about.png" },
                             new HomeMenuItem { Title = "Connect", MenuType = MenuType.CoachList, Icon ="about.png" },
                             new HomeMenuItem { Title = "Events", MenuType = MenuType.CoachList, Icon ="about.png" },
-                            new HomeMenuItem { Title = "Logout", MenuType = MenuType.CoachList, Icon ="about.png" }
+                            new HomeMenuItem { Title = "Logout", MenuType = MenuType.Logout, Icon ="about.png" }
         					
         				};
 

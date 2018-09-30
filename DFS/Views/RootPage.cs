@@ -7,8 +7,10 @@ namespace DFS
 {
     public class RootPage : MasterDetailPage
     {
-        Dictionary<int, NavigationPage> Pages { get; set;} 
-        public RootPage()
+        Dictionary<int, NavigationPage> Pages { get; set;}
+        String selectedView;
+
+        public RootPage(String _selectedView)
         {
             NavigationPage.SetHasNavigationBar(this, false);
             Pages = new Dictionary<int, NavigationPage>();
@@ -22,7 +24,11 @@ namespace DFS
             Detail = Pages[(int)MenuType.CoachList];
 
             InvalidateMeasure();
+
+            selectedView = _selectedView;
         }
+
+
 
         public async Task NavigateAsync(int id)
         {
@@ -39,8 +45,9 @@ namespace DFS
         				break;
 
                     case (int)MenuType.Logout:
-                        await this.Navigation.PopToRootAsync();
-                        break;
+                        Application.Current.MainPage = new NavigationPage(new Views.SelectionPage());
+                        //await this.Navigation.PushAsync(new NavigationPage(new LoginPage(selectedView)));
+                        return;
         			
         		}
         	}

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace DFS.Models
 {
     public class TraineeSignupModel
@@ -14,6 +16,8 @@ namespace DFS.Models
         public String imagePayload { get; set; }
 
         public BasicInfo basicInfo { get; set; }
+
+        public ProfessionalInfo professionalInfo {get;set;}
 
         public class BasicInfo {
 
@@ -55,5 +59,36 @@ namespace DFS.Models
 
             public String longitude { get; set; }
         }
+
+        public class ProfessionalInfo
+        {
+            public String speciality { get; set; }
+
+            public String experience { get; set; }
+
+            public String accolades { get; set; }
+
+            public List<Services> services { get; set; }
+
+            public List<Certifications> certifications { get; set; }
+
+        }
+
+        public class Services
+        {
+            public String serviceName { get; set; }
+
+            public int charges { get; set; }
+
+            public String chargingPeriod { get; set; }
+
+        }
+
+        public class Certifications
+        {
+            public String certification { get; set; }
+
+        }
+
     }
 }

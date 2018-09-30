@@ -13,9 +13,14 @@ namespace DFS.Views
 
             BindingContext = signUpViewModel;
 
+            if(signUpViewModel.SelectedView == "Trainer")
+            {
+                signUpViewModel.IsTrainerView = true; 
+            }
+
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", async (sender) =>
             {
-                await this.Navigation.PushAsync(new RootPage());
+                await this.Navigation.PushAsync(new RootPage(signUpViewModel.SelectedView));
             });
 
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpFailure", async (sender) =>
