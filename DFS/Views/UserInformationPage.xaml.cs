@@ -1,26 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using Plugin.Media;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
 
 namespace DFS.Views
 {
     public partial class UserInformationPage : ContentPage
     {
-        public UserInformationPage(ViewModels.SignupViewModel signUpViewModel)
+        ViewModels.SignupViewModel signupViewModel;
+        public UserInformationPage(ViewModels.SignupViewModel _signUpViewModel)
         {
             InitializeComponent();
 
-            BindingContext = signUpViewModel;
+            BindingContext = signupViewModel = _signUpViewModel;
 
-            if(signUpViewModel.SelectedView == "Trainer")
+            if(signupViewModel.SelectedView == "Trainer")
             {
-                signUpViewModel.IsTrainerView = true; 
+                signupViewModel.IsTrainerView = true; 
             }
 
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", async (sender) =>
             {
-                await this.Navigation.PushAsync(new RootPage(signUpViewModel.SelectedView));
+                await this.Navigation.PushAsync(new RootPage(signupViewModel.SelectedView));
             });
 
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpFailure", async (sender) =>
@@ -33,31 +36,61 @@ namespace DFS.Views
 
         async void Handle_PictureTapped(object sender, System.EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
-            if (!CrossMedia.Current.IsTakePhotoSupported)
+            try
             {
-                return;
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Photos))
+                    {
+                        //await DisplayAlert("Need location", "Gunna need that location", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Photos);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Photos))
+                        status = results[Permission.Photos];
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
+                    var file = await CrossMedia.Current.PickPhotoAsync(
+                    new Plugin.Media.Abstractions.PickMediaOptions
+                    {
+                        PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+
+                    });
+
+                    if (file == null)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        signupViewModel.UserIcon = file.Path;
+
+                        using(var fs = file.GetStream())
+                        {
+                            var imageData = new byte[fs.Length];
+                            fs.Read(imageData, 0, (int)fs.Length);
+                            signupViewModel.User64String = Convert.ToBase64String(imageData);
+
+                        }
+
+
+                    }
+                }
+                else if (status != PermissionStatus.Unknown)
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Unable to get location: " + ex);
             }
 
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium
-            });
 
-            if (file == null)
-            {
-                // MessagingCenter.Send<InspectionListViewModel, String>(this, "AlertDisplay", "No File Available. Please try again.");
-                return;
-            }
-            else
-            {
-                //UserIcon = ImageSource.FromStream(() =>
-                //{
-                //    var stream = file.GetStream();
-                //    file.Dispose();
-                //    return stream;
-                //});
-            }
         }
     }
 }

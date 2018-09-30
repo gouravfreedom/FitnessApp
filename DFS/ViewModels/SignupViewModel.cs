@@ -314,6 +314,22 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _user64String { get; set; }
+
+        public String User64String
+        {
+            get
+            {
+                return _user64String;
+            }
+            set
+            {
+                _user64String = value;
+
+                RaisePropertyChanged(nameof(User64String));
+            }
+        }
+
         private String _experience { get; set; }
 
         public String Experience
@@ -464,6 +480,8 @@ namespace DFS.ViewModels
 
             _userIcon = "defaultIcon.png";
 
+            _user64String = "NA";
+
             _isTrainerView = false;
 
             // Intialize commands
@@ -487,7 +505,7 @@ namespace DFS.ViewModels
             signupModel.password = Password;
             signupModel.profile = SelectedView;
             signupModel.signUpMetod = "App";
-            signupModel.imagePayload = "NA";
+            signupModel.imagePayload = User64String;
 
 
             Models.TraineeSignupModel.BasicInfo basicInfo = new Models.TraineeSignupModel.BasicInfo();
@@ -505,7 +523,7 @@ namespace DFS.ViewModels
             basicInfo.mobileNumber = TelephoneNumber + "";
             basicInfo.name = Name;
             basicInfo.phoneNumber = TelephoneNumber + "";
-            basicInfo.sportsInterest = "fjkjdf";
+            basicInfo.sportsInterest = SportsList[SportsIndex];
             basicInfo.state = "sdfjkj";
             basicInfo.title = TitleList[TitleIndex];
             basicInfo.valueAdded = "dsfjk";
