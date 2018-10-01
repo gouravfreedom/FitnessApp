@@ -34,7 +34,7 @@
                                                     MinimumWidthRequest="80"
                                                     MinimumHeightRequest="80"
                                                     HeightRequest="80">
-                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="{Binding ImageUrl}"/>
+                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg"/>
                                             </Frame>
                                             <StackLayout MinimumHeightRequest="100" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                                 <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        

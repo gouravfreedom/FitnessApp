@@ -37,7 +37,7 @@ namespace DFS
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/traineelist");
+                var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/trainerlist");
 
                 try
                 {
@@ -83,7 +83,7 @@ namespace DFS
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/signup");
+                var uri = new Uri("http://192.163.244.92:4080/FitnessApp/manageservices/v1/members/signup?wsdl");
 
                 try
                 {

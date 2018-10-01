@@ -19,8 +19,8 @@
             <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource GreenColor}">
                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         
-                        <Image Source="roger.jpeg" HeightRequest="70" WidthRequest="70" />
-                        <Label Text="Lalinsky Brown" Font="Bold" FontSize="20"/>
+                        <Image Source="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg" HeightRequest="120" WidthRequest="120" />
+                        <Label Text="" Font="Bold" FontSize="20"/>
                     </StackLayout>
             </StackLayout>
             <StackLayout Grid.Row="1" BackgroundColor="{StaticResource BackColor}">
