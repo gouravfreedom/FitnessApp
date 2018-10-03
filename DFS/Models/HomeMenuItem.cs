@@ -6,7 +6,8 @@ namespace DFS
     {
         CoachList,
         Logout,
-        TraineeProfile
+        TraineeProfile,
+        TrainerProfile
     }
     public class HomeMenuItem : BaseModel
     {

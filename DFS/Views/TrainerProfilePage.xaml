@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.TrainerProfilePage">
+     <ContentPage.Content>
+        <StackLayout>
+            <Grid  VerticalOptions="FillAndExpand" RowSpacing="0">
+              <Grid.RowDefinitions >
+               
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+                
+                <!-- Header View  -->
+                <StackLayout BackgroundColor="Gray" Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Frame 
+                                CornerRadius="60"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                IsClippedToBounds="true"
+                                Margin="0"
+                                Padding="0"
+                                WidthRequest="120"
+                                MinimumWidthRequest="120"
+                                MinimumHeightRequest="120"
+                                HeightRequest="120">
+                            <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="profile1.jpeg"/>
+                        </Frame>
+                        
+                        <Image Source="username" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" />
+                        
+                    </StackLayout>
+                    
+                    <Label Text="Bethanyy Morris" VerticalOptions="StartAndExpand" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    
+                    
+                </StackLayout>
+                
+                 <!-- Footer View  -->
+                <StackLayout BackgroundColor="White" Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    
+                    <StackLayout HeightRequest="25" BackgroundColor="Black">
+                        
+                        <Grid  VerticalOptions="FillAndExpand" RowSpacing="0">
+                          <Grid.RowDefinitions >
+                            <RowDefinition Height="25" />
+                          </Grid.RowDefinitions>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                          </Grid.ColumnDefinitions>
+                            
+                        <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ProfileCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label TextColor="{Binding ProfileColor}" Text="Profile" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Font="14" />
+                            <BoxView Color="{Binding ProfileColor}" VerticalOptions="End" HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="15,0"/>
+                        </StackLayout>
+                            
+                        <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ServiceCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label TextColor="{Binding ServiceColor}" Text="Services" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Font="14"/>
+                            <BoxView Color="{Binding ServiceColor}" VerticalOptions="End" HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="15,0"/>
+                        </StackLayout>
+                            
+                        <StackLayout Grid.Column="2" HorizontalOptions="FillAndExpand" >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ReviewCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label TextColor="{Binding ReviewColor}" Text="Reviews" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Font="14"/>
+                            <BoxView Color="{Binding ReviewColor}" VerticalOptions="End" HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="15,0"/>
+                        </StackLayout>
+                            
+                        </Grid>
+                        
+                        
+                    </StackLayout>
+                    
+                    <!-- Main Content view  -->
+                    <StackLayout>
+                        
+                        <StackLayout.GestureRecognizers>
+                            <PanGestureRecognizer PanUpdated="Handle_PanUpdated"/>
+                        </StackLayout.GestureRecognizers>
+                        
+                        <!-- Profile view  -->
+                        <ScrollView x:Name="ProfileView" IsVisible="{Binding IsProfileVisible}">
+                            <StackLayout Margin="20">
+                                
+                                <!-- Speciality view  -->
+                                <StackLayout>
+                                    <Label Text="Speciality" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="Cardio Session" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                
+                                <!-- Training place view  -->
+                                <StackLayout Margin="0,5,0,0">
+                                    <Label Text="Training Places" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                
+                                <!-- Experience view  -->
+                                <StackLayout Margin="0,5,0,0">
+                                    <Label Text="Experience" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="18 Years" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                
+                                <!-- Accolades view  -->
+                                <StackLayout Margin="0,5,0,0">
+                                    <Label Text="Accolades" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                
+                                <!-- Certifications view  -->
+                                <StackLayout Margin="0,5,0,0">
+                                    <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                
+                                <!-- Certifications view  -->
+                                <StackLayout Margin="0,5,0,0">
+                                    <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                <!-- Certifications view  -->
+                                <StackLayout Margin="0,5,0,0">
+                                    <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                <!-- Certifications view  -->
+                                <StackLayout Margin="0,5,0,0">
+                                    <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                                
+                                <!-- Gallery view  -->
+                                <StackLayout Margin="0,5,0,0" Spacing="0">
+                                    <Label Text="Gallery" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    
+                                     <!-- Instagram button View -->
+                                    <Frame CornerRadius="5" HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource InstaColor}" Padding="10,2">
+                                        <StackLayout HeightRequest="20" HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                                            <Image Source="instagram" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="15" WidthRequest="15"></Image>
+                                            <Label Text="Go to Instagram" FontSize="11" VerticalOptions="CenterAndExpand" TextColor="White"/>
+                                        </StackLayout>
+                                    </Frame>
+                                    
+                                    
+                                </StackLayout>
+                                
+                            </StackLayout>
+                        </ScrollView>
+                        
+                        <!-- Services view  -->
+                        <StackLayout IsVisible="{Binding IsServiceVisible}">
+                            <ListView VerticalOptions="StartAndExpand" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ServiceListData}" SeparatorColor="Transparent" Margin="20">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell Height="50">
+                                             <Frame 
+                                                    CornerRadius="10"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    IsClippedToBounds="true"
+                                                    BackgroundColor="{StaticResource GreenColor}"
+                                                    Margin="20,0"
+                                                    Padding="0"
+                                                    HeightRequest="40">
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                                    <Label Text="HTTP Session" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="10,0,0,0" TextColor="White"/>
+                                                    <Label Text="$70/hr" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Margin="10,0,10,0" TextColor="White"/>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            
+                            
+                            <StackLayout VerticalOptions="EndAndExpand" HeightRequest="120" MinimumHeightRequest="120" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource DarkBackgroundColor}">
+                                <ScrollView Margin="20,10">
+                                    <StackLayout>
+                                        <Label Text="Descriprion" Font="Bold" TextColor="Black" FontSize="14"/>
+                                        <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    </StackLayout>
+                                </ScrollView>
+                            </StackLayout>
+                            
+                        </StackLayout>
+                        
+                        
+                        <!-- Reviews view  -->
+                        <ListView IsVisible="{Binding IsReviewsVisible}" VerticalOptions="StartAndExpand" HasUnevenRows="true" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ServiceListData}" SeparatorColor="Gray" Margin="20">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                         
+                                        <StackLayout Margin="0,5">
+                                            <Label FontSize="15" Text="Bethany" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="20,0,0,0" TextColor="Black"/>
+                                            <Label FontSize="14" Text="Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="20,0,0,0" TextColor="{StaticResource GreyTextColor}"/>
+                                        </StackLayout>
+                                        
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
+                    </StackLayout>
+                    
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
