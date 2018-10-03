@@ -30,7 +30,7 @@ namespace DFS
         		ListViewMenu.ItemsSource = menuItems = new List<HomeMenuItem>
         				{
                             new HomeMenuItem { Title = "Find Trainer", MenuType = MenuType.CoachList, Icon ="about.png" },
-                            new HomeMenuItem { Title = "Profile", MenuType = MenuType.CoachList, Icon ="about.png" },
+                            new HomeMenuItem { Title = "Profile", MenuType = MenuType.TraineeProfile, Icon ="about.png" },
                             new HomeMenuItem { Title = "Settings", MenuType = MenuType.CoachList, Icon ="about.png" },
                             new HomeMenuItem { Title = "Notifications", MenuType = MenuType.CoachList, Icon ="about.png" },
                             new HomeMenuItem { Title = "Previous transaction", MenuType = MenuType.CoachList, Icon ="about.png" },

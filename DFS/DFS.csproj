@@ -101,6 +101,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TraineeProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -198,6 +202,9 @@
     <Compile Include="ViewModels\TrainerListViewModel.cs" />
     <Compile Include="Models\TrainerListModel.cs" />
     <Compile Include="Models\TrainerListRequestModel.cs" />
+    <Compile Include="Views\TraineeProfilePage.xaml.cs">
+      <DependentUpon>TraineeProfilePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

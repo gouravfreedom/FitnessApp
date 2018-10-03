@@ -20,8 +20,8 @@ namespace DFS
                     Title = "Hanselman",
                     Icon = "slideout.png"
                 };
-            Pages.Add((int)MenuType.CoachList, new HanselmanNavigationPage(new Views.CoachListPage()));
-            Detail = Pages[(int)MenuType.CoachList];
+            Pages.Add((int)MenuType.TraineeProfile, new HanselmanNavigationPage(new Views.TraineeProfilePage()));
+            Detail = Pages[(int)MenuType.TraineeProfile];
 
             InvalidateMeasure();
 
@@ -40,6 +40,10 @@ namespace DFS
 
         		switch (id)
         		{
+                    case (int)MenuType.TraineeProfile:
+                        Pages.Add(id, new HanselmanNavigationPage(new Views.TraineeProfilePage()));
+                        break;
+
                     case (int)MenuType.CoachList:
                         Pages.Add(id, new HanselmanNavigationPage(new Views.CoachListPage()));
         				break;
