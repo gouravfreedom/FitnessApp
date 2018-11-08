@@ -8,6 +8,8 @@ namespace DFS
 
         public static Service.DatabaseManager DatabaseManager { get; private set; }
 
+        public static string SelectedView;
+
         public App()
         {
             InitializeComponent();

@@ -139,6 +139,22 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _confirmPassword { get; set; }
+
+        public String ConfirmPassword
+        {
+            get
+            {
+                return _confirmPassword;
+            }
+            set
+            {
+                _confirmPassword = value;
+
+                RaisePropertyChanged(nameof(ConfirmPassword));
+            }
+        }
+
         private String _name { get; set; }
 
         public String Name
@@ -499,6 +515,12 @@ namespace DFS.ViewModels
 
             IsServiceInProgress = true;
 
+            if(MedicalInfo == null || GenderIndex < 0 || Height == null || TelephoneNumber == null || SportsIndex < 0 || TitleIndex < 0 || Weight == null)
+            {
+                MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
+                return;
+            }
+
             Models.TraineeSignupModel signupModel = new Models.TraineeSignupModel();
 
             signupModel.email = EmailAddress;
@@ -561,12 +583,13 @@ namespace DFS.ViewModels
 
             var message = await App.TodoManager.SignUp(signupModel);
 
-            if(message == "Success")
+            if (message == "Success")
             {
                 MessagingCenter.Send<SignupViewModel>(this, "SignUpSuccess");
             }
-            else{
-                MessagingCenter.Send<SignupViewModel>(this, "SignUpFailure");
+            else
+            {
+                MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Internal Issue. Please Try Again.");
             }
 
             IsServiceInProgress = false;

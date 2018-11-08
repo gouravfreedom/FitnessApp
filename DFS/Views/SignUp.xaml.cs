@@ -20,8 +20,18 @@ namespace DFS.Views
 
         async void OnSignUpButtonClicked(object sender, EventArgs e)
         {
-            await this.Navigation.PushAsync(new UserInformationPage(signupViewModel));
-
+            if (signupViewModel.EmailAddress == null || signupViewModel.Password == null || signupViewModel.ConfirmPassword == null)
+            {
+                await DisplayAlert("Alert", "Please enter Username/Password.", "OK");
+            }
+            else if (signupViewModel.Password != signupViewModel.ConfirmPassword)
+            {
+                await DisplayAlert("Alert", "Please enter Username/Password.", "OK");
+            }
+            else
+            {
+                await this.Navigation.PushAsync(new UserInformationPage(signupViewModel));
+            }
         }
     }
 }

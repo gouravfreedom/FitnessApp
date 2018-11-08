@@ -16,6 +16,7 @@ namespace DFS.Views
         {
             TraineeLabel.TextColor = Color.FromHex(Application.Current.Resources["BlackColor"].ToString());
             TraineeFrame.BackgroundColor = Color.FromRgba(0.55f, 0.80f, 0.04f, 1.0f);
+            App.SelectedView = "Trainee";
             await this.Navigation.PushAsync(new LoginPage("Trainee"));
         }
 
@@ -23,6 +24,7 @@ namespace DFS.Views
         {
             TrainerLabel.TextColor = Color.FromHex(Application.Current.Resources["BlackColor"].ToString());
             TrainerFrame.BackgroundColor = Color.FromRgba(0.55f, 0.80f, 0.04f, 1.0f);
+            App.SelectedView = "Trainer";
             await this.Navigation.PushAsync(new LoginPage("Trainer"));
         }
 

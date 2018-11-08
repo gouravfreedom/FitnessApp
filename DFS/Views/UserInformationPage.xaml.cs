@@ -26,9 +26,9 @@ namespace DFS.Views
                 await this.Navigation.PushAsync(new RootPage(signupViewModel.SelectedView));
             });
 
-            MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpFailure", async (sender) =>
+            MessagingCenter.Subscribe<ViewModels.SignupViewModel, String>(this, "SignUpFailure", async (sender, message) =>
             {
-                await DisplayAlert("Alert", "Internal Issue. Please Try Again.", "Ok");
+                await DisplayAlert("Alert", message, "Ok");
             });
 
 

@@ -15,14 +15,14 @@
             <Color x:Key="HeaderColor">#c89616</Color>
             <Color x:Key="SecHeaderColor">#9B6904</Color>
             <Color x:Key="WhiteColor">#ffffff</Color>
-            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="BlackColor">#333333</Color>
             <Color x:Key="CircleColor">#3F9451</Color>
             <Color x:Key="GreyTextColor">#666666</Color>
             <Color x:Key="OutlineColor">#e0e0e0</Color>
             <Color x:Key="BackColor">#191613</Color>
             <Color x:Key="InstaColor">#7c1a2c</Color>
             <Color x:Key="fbColor">#2b4088</Color>
-            <Color x:Key="GreenColor">#8BCB0B</Color>
+            <Color x:Key="GreenColor">#9BD000</Color>
 
 
             <Style TargetType="NavigationPage">

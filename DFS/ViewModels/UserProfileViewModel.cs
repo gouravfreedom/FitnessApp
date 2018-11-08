@@ -103,9 +103,6 @@ namespace DFS
 
         public async void OnLogin() {
 
-            MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "AV");
-            return;
-
             if (Username == null || UserPassword == null || Username == "" || UserPassword == ""){
                 MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", "Please provide Username/Password");
             }
