@@ -25,9 +25,9 @@ namespace DFS
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginFailure");
                 if (message == "NAV")
                 {
-                    //await this.Navigation.PushAsync(new Views.SignUp(_selectedView));
+                    await this.Navigation.PushAsync(new Views.SignUp(_selectedView));
 
-                    await this.Navigation.PushAsync(new RootPage(_selectedView));
+                    //await this.Navigation.PushAsync(new RootPage(_selectedView));
                 }
                 else{
                     await this.Navigation.PushAsync(new RootPage(_selectedView));
@@ -40,6 +40,11 @@ namespace DFS
                 await DisplayAlert("Alert", message, "Ok");
             });
 
+        }
+
+        async void Handle_Facebook(object sender, System.EventArgs e)
+        {
+            await this.Navigation.PushAsync(new FacebookLogin.Views.FacebookProfileCsPage());
         }
 
         async void Handle_SignUpClickedAsync(object sender, System.EventArgs e)

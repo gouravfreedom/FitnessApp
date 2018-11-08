@@ -56,6 +56,9 @@
 
                                 <!-- Facebook button View -->
                                 <Frame CornerRadius="10" BackgroundColor="{StaticResource fbColor}" Padding="0">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Handle_Facebook"/>
+                                    </Frame.GestureRecognizers>
                                     <StackLayout HeightRequest="50">
                                         <RelativeLayout>
                                             <Label HeightRequest="50" 

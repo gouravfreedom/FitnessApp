@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Fitness</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.indomex.fitness</string>
+	<string>com.silva.fitness</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
