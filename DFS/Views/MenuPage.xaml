@@ -19,7 +19,7 @@
             <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource GreenColor}">
                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         
-                        <Image Source="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg" HeightRequest="120" WidthRequest="120" />
+                        <Image x:Name="ProfileImage" HeightRequest="120" WidthRequest="120" />
                         <Label Text="" Font="Bold" FontSize="20"/>
                     </StackLayout>
             </StackLayout>

@@ -218,6 +218,7 @@
     <Compile Include="ViewModels\FacebookViewModel.cs" />
     <Compile Include="Services\FacebookServices.cs" />
     <Compile Include="Models\FacebookProfile.cs" />
+    <Compile Include="ViewModels\TraineeProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

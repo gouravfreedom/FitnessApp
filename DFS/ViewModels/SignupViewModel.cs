@@ -463,6 +463,11 @@ namespace DFS.ViewModels
 
         public SignupViewModel()
         {
+            if(App.SelectedView == "Trainee")
+            {
+                IsTrainerView = false;
+            }
+
             _titleList = new ObservableCollection<String>();
             _titleList.Add("Mr.");
             _titleList.Add("Mrs.");
@@ -511,15 +516,16 @@ namespace DFS.ViewModels
 
         }
 
-        private async void SaveClicked(){
-
-            IsServiceInProgress = true;
+        private async void SaveClicked()
+        {
 
             if(MedicalInfo == null || GenderIndex < 0 || Height == null || TelephoneNumber == null || SportsIndex < 0 || TitleIndex < 0 || Weight == null)
             {
                 MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
                 return;
             }
+
+            IsServiceInProgress = true;
 
             Models.TraineeSignupModel signupModel = new Models.TraineeSignupModel();
 

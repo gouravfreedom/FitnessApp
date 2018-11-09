@@ -31,12 +31,12 @@
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="profile1.jpeg"/>
                         </Frame>
                         
-                        <Image Source="username" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" />
+                        <Image Source="gray_cal" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" />
                         
                     </StackLayout>
                     
-                    <Label Text="Bethanyy Morris" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
-                    <Frame CornerRadius="5" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource GreenColor}" Padding="50,5" Margin="0,0,0,10">
+                    <Label Text="{Binding TraineeName}" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    <Frame CornerRadius="5" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource GreenColor}" Padding="70,10" Margin="0,0,0,10">
                         <Label Text="TRAIN ME" Font="16" TextColor="Black" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand"/>
                     </Frame>
                     
@@ -58,13 +58,13 @@
                             <!-- Content view  -->
                             <StackLayout>
                                 <Label Text="Interest" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="Cardio Session" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding TraineeInterest}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                             </StackLayout>
                             
                             <!-- Goals view  -->
                             <StackLayout Margin="0,5,0,0">
-                                <Label Text="Interest" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="Lose pounds-weight" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="Goals" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding TraineeGoals}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                             </StackLayout>
                             
                             <!-- Goals view  -->

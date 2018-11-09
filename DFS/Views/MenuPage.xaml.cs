@@ -10,22 +10,26 @@ namespace DFS
         	RootPage root;
         	List<HomeMenuItem> menuItems;
 
-            public MenuPage(){
-                InitializeComponent();
+        public MenuPage()
+        {
+            InitializeComponent();
 
-            }
-        	public MenuPage(RootPage root)
-        	{
+        }
+        public MenuPage(RootPage root)
+        {
 
-        		this.root = root;
-        		InitializeComponent();
-        		
-        		BindingContext = new BaseViewModel
-        		{
-        			Title = "Hanselman.Forms",
-        			Subtitle = "Hanselman.Forms",
-        			Icon = "slideout.png"
-        		};
+            this.root = root;
+            InitializeComponent();
+
+            BindingContext = new BaseViewModel
+            {
+                Title = "Hanselman.Forms",
+                Subtitle = "Hanselman.Forms",
+                Icon = "slideout.png"
+            };
+
+            Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
+            ProfileImage.Source = syncLoginResponse.ImageUrl;
 
             if (App.SelectedView == "Trainer")
             {
@@ -64,10 +68,10 @@ namespace DFS
             {
                 if (ListViewMenu.SelectedItem == null)
                     return;
-                
+
                 await this.root.NavigateAsync((int)((HomeMenuItem)e.SelectedItem).MenuType);
                 ((ListView)sender).SelectedItem = null;
             };
-         }
+        }
     }
 }

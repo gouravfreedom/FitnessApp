@@ -219,6 +219,9 @@
     <ImageAsset Include="Assets.xcassets\plus_green.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\plus_green.imageset\1x-14.png" />
     <ImageAsset Include="Assets.xcassets\plus_green.imageset\Sin título-2-13.png" />
+    <ImageAsset Include="Assets.xcassets\gray_cal.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\gray_cal.imageset\gray_cal.png" />
+    <ImageAsset Include="Assets.xcassets\gray_cal.imageset\Sin título-2-10.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -229,6 +232,8 @@
     <Folder Include="Assets.xcassets\instagram.imageset\" />
     <Folder Include="Controls\" />
     <Folder Include="Assets.xcassets\plus_green.imageset\" />
+    <Folder Include="Assets.xcassets\login_logo.imageset\" />
+    <Folder Include="Assets.xcassets\gray_cal.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -320,6 +325,7 @@
     <BundleResource Include="Resources\profile5.jpeg" />
     <BundleResource Include="Resources\roger.jpeg" />
     <BundleResource Include="Resources\defaultIcon.png" />
+    <BundleResource Include="Resources\loginlogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets')" />

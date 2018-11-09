@@ -12,6 +12,7 @@ namespace DFS
 
         public RootPage(String _selectedView)
         {
+
             NavigationPage.SetHasNavigationBar(this, false);
             Pages = new Dictionary<int, NavigationPage>();
             Master = new MenuPage(this);
@@ -26,6 +27,7 @@ namespace DFS
 
                 Pages.Add((int)MenuType.TraineeProfile, new HanselmanNavigationPage(new Views.TraineeProfilePage()));
                 Detail = Pages[(int)MenuType.TraineeProfile];
+                Detail.BackgroundColor = Color.Purple;
             }else
             {
                 Pages.Add((int)MenuType.TrainerProfile, new HanselmanNavigationPage(new Views.TrainerProfilePage()));

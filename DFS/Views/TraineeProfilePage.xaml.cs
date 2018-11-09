@@ -10,6 +10,8 @@ namespace DFS.Views
         public TraineeProfilePage()
         {
             InitializeComponent();
+
+            BindingContext = new ViewModels.TraineeProfileViewModel();
         }
     }
 }

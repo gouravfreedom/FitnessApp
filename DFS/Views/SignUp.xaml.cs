@@ -26,7 +26,7 @@ namespace DFS.Views
             }
             else if (signupViewModel.Password != signupViewModel.ConfirmPassword)
             {
-                await DisplayAlert("Alert", "Please enter Username/Password.", "OK");
+                await DisplayAlert("Alert", "Please enter the correct password to confirm.", "OK");
             }
             else
             {

@@ -32,7 +32,7 @@
                                 </StackLayout>
 
                                 <StackLayout Margin="20,0">
-                                    <Label Text="Title" TextColor="White" Font="Bold"/>
+                                    <Label Text="Name" TextColor="White" Font="Bold"/>
                                     <Picker SelectedIndex="{Binding TitleSelectIndex}" ItemsSource="{Binding TitleList}" Title="Select Title" BackgroundColor="White" TextColor="Gray"></Picker>
                                 </StackLayout>
 
@@ -84,7 +84,7 @@
                                 <StackLayout Margin="20,0">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Speciality" TextColor="White" Font="Bold"/>
-                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
                                     </StackLayout>
                                     <Picker Title="Select Speciality" SelectedIndex="{Binding SpecialityIndex}" ItemsSource="{Binding SpecialityList}" BackgroundColor="White" TextColor="Gray"/>
                                     
@@ -93,7 +93,7 @@
                                 <StackLayout Margin="20,0">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Experience" TextColor="White" Font="Bold"/>
-                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
                                     </StackLayout>
                                     
                                     <Entry Text="{Binding Experience}" Placeholder="Enter Experience" Keyboard="Numeric" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
@@ -102,7 +102,7 @@
                                 <StackLayout Margin="20,0">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Accolades" TextColor="White" Font="Bold"/>
-                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
                                     </StackLayout>
                                     
                                     <Entry Text="{Binding Accolades}" Placeholder="Enter Accolades" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
@@ -112,7 +112,7 @@
                                 <StackLayout Margin="20,0">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Certification" TextColor="White" Font="Bold"/>
-                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
                                     </StackLayout>
                                     <Entry Text="{Binding Certification}" Placeholder="Enter Certification" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>
                                     <!--<Entry Text="{Binding Certification2}" Placeholder="Enter Certification" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>-->
@@ -121,7 +121,7 @@
                                 <StackLayout Margin="20,0">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Services" TextColor="White" Font="Bold"/>
-                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
                                     </StackLayout>
                                     
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">

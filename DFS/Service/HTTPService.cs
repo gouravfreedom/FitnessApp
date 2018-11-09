@@ -41,7 +41,6 @@ namespace DFS
 
                 try
                 {
-                    var json = "{}";
                     var content = new StringContent("{}", Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = null;
@@ -99,6 +98,31 @@ namespace DFS
                     {
                         Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
                         Debug.WriteLine("Response" + response.ToString());
+
+                        LoginResponse.SyncLoginResponse syncLoginResponse = new LoginResponse.SyncLoginResponse();
+
+                        syncLoginResponse.Status = "AV";
+                        syncLoginResponse.Profile = App.SelectedView;
+                        syncLoginResponse.SignUpMetod = "App";
+                        syncLoginResponse.Password = "";
+                        syncLoginResponse.Email = "";
+                        syncLoginResponse.Name = signupModel.basicInfo.name;
+                        syncLoginResponse.Gender = signupModel.basicInfo.gender;
+                        syncLoginResponse.Country = signupModel.basicInfo.country;
+                        syncLoginResponse.State = signupModel.basicInfo.state;
+                        syncLoginResponse.Address = signupModel.basicInfo.address;
+                        syncLoginResponse.ImageUrl = signupModel.basicInfo.imageUrl;
+                        syncLoginResponse.PhoneNumber = signupModel.basicInfo.phoneNumber;
+                        syncLoginResponse.InstaGramId = signupModel.basicInfo.instaGramId;
+                        syncLoginResponse.Latitude = signupModel.basicInfo.latitude;
+                        syncLoginResponse.Longitude = signupModel.basicInfo.longitude;
+                        syncLoginResponse.Speciality = signupModel.professionalInfo.speciality;
+                        syncLoginResponse.Experience = signupModel.professionalInfo.experience;
+                        syncLoginResponse.Accolades = signupModel.professionalInfo.accolades;
+
+                        db.Insert(syncLoginResponse);
+
+
                         return "Success";
 
                     }
