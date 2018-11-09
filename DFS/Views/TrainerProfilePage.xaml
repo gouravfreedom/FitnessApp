@@ -31,11 +31,11 @@
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="profile1.jpeg"/>
                         </Frame>
                         
-                        <Image Source="username" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" />
+                        <Image Source="gray_cal" HeightRequest="40" WidthRequest="40" Margin="10,0,0,0" VerticalOptions="CenterAndExpand" />
                         
                     </StackLayout>
                     
-                    <Label Text="Bethanyy Morris" VerticalOptions="StartAndExpand" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding TrainerName}" VerticalOptions="StartAndExpand" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
                     
                     
                 </StackLayout>
@@ -98,48 +98,33 @@
                                 <!-- Speciality view  -->
                                 <StackLayout>
                                     <Label Text="Speciality" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="Cardio Session" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding TrainerSpeciality}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                                 </StackLayout>
                                 
                                 <!-- Training place view  -->
                                 <StackLayout Margin="0,5,0,0">
                                     <Label Text="Training Places" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding TrainingPlace}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                                 </StackLayout>
                                 
                                 <!-- Experience view  -->
                                 <StackLayout Margin="0,5,0,0">
                                     <Label Text="Experience" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="18 Years" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding TrainerExperience}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                                 </StackLayout>
                                 
                                 <!-- Accolades view  -->
                                 <StackLayout Margin="0,5,0,0">
                                     <Label Text="Accolades" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding TrainerAccolades}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                                 </StackLayout>
                                 
                                 <!-- Certifications view  -->
                                 <StackLayout Margin="0,5,0,0">
                                     <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding TrainerCert}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                                 </StackLayout>
                                 
-                                <!-- Certifications view  -->
-                                <StackLayout Margin="0,5,0,0">
-                                    <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
-                                </StackLayout>
-                                <!-- Certifications view  -->
-                                <StackLayout Margin="0,5,0,0">
-                                    <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
-                                </StackLayout>
-                                <!-- Certifications view  -->
-                                <StackLayout Margin="0,5,0,0">
-                                    <Label Text="Certifications" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
-                                </StackLayout>
                                 
                                 <!-- Gallery view  -->
                                 <StackLayout Margin="0,5,0,0" Spacing="0">

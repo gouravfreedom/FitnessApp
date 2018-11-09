@@ -9,6 +9,90 @@ namespace DFS.ViewModels
 {
     public class ProfileViewModel : INotifyPropertyChanged
     {
+        private String _trainerName;
+        public String TrainerName
+        {
+            get
+            {
+                return _trainerName;
+            }
+            set
+            {
+                _trainerName = value;
+                RaisePropertyChanged(nameof(TrainerName));
+            }
+        }
+
+        private String _trainerSpeciality;
+        public String TrainerSpeciality
+        {
+            get
+            {
+                return _trainerSpeciality;
+            }
+            set
+            {
+                _trainerSpeciality = value;
+                RaisePropertyChanged(nameof(TrainerSpeciality));
+            }
+        }
+
+        private String _trainingPlace;
+        public String TrainingPlace
+        {
+            get
+            {
+                return _trainingPlace;
+            }
+            set
+            {
+                _trainingPlace = value;
+                RaisePropertyChanged(nameof(TrainingPlace));
+            }
+        }
+
+        private String _trainerExperience;
+        public String TrainerExperience
+        {
+            get
+            {
+                return _trainerExperience;
+            }
+            set
+            {
+                _trainerExperience = value;
+                RaisePropertyChanged(nameof(TrainerExperience));
+            }
+        }
+
+        private String _trainerAccolades;
+        public String TrainerAccolades
+        {
+            get
+            {
+                return _trainerAccolades;
+            }
+            set
+            {
+                _trainerAccolades = value;
+                RaisePropertyChanged(nameof(TrainerAccolades));
+            }
+        }
+
+        private String _trainerCert;
+        public String TrainerCert
+        {
+            get
+            {
+                return _trainerCert;
+            }
+            set
+            {
+                _trainerCert = value;
+                RaisePropertyChanged(nameof(TrainerCert));
+            }
+        }
+
         private Boolean _isReviewsVisible;
         public Boolean IsReviewsVisible
         {
@@ -125,6 +209,17 @@ namespace DFS.ViewModels
 
         public ProfileViewModel()
         {
+
+            Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
+
+            TrainerName = syncLoginResponse.Name;
+            TrainerCert = syncLoginResponse.Accolades;
+            TrainingPlace = syncLoginResponse.Address;
+            TrainerAccolades = syncLoginResponse.Accolades;
+            TrainerExperience = syncLoginResponse.Experience;
+            TrainerSpeciality = syncLoginResponse.Accolades;
+
+
             _serviceListData = new ObservableCollection<string>();
             _serviceListData.Add("Data");
             _serviceListData.Add("Data");
