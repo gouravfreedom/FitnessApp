@@ -31,7 +31,7 @@
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="profile1.jpeg"/>
                         </Frame>
                         
-                        <Image Source="gray_cal" HeightRequest="40" WidthRequest="40" Margin="10,0,0,0" VerticalOptions="CenterAndExpand" />
+                        <Image Source="lightgray_cal" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand" />
                         
                     </StackLayout>
                     
@@ -160,8 +160,8 @@
                                                     Padding="0"
                                                     HeightRequest="40">
                                                 <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                                                    <Label Text="HTTP Session" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="10,0,0,0" TextColor="White"/>
-                                                    <Label Text="$70/hr" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Margin="10,0,10,0" TextColor="White"/>
+                                                    <Label Text="{Binding ServiceName}" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="10,0,0,0" TextColor="White"/>
+                                                    <Label Text="{Binding Charges}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Margin="10,0,10,0" TextColor="White"/>
                                                 </StackLayout>
                                             </Frame>
                                         </ViewCell>
@@ -174,7 +174,7 @@
                                 <ScrollView Margin="20,10">
                                     <StackLayout>
                                         <Label Text="Descriprion" Font="Bold" TextColor="Black" FontSize="14"/>
-                                        <Label Text="USA, fitness - northern hills \n Special area \n need to be taken care USA, fitness - northern hills /n Special area /n need to be taken care" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
+                                        <Label x:Name="ServiceLabel" IsVisible="false" Text="{Binding ServiceDesc}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand"/>
                                     </StackLayout>
                                 </ScrollView>
                             </StackLayout>

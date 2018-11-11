@@ -23,8 +23,16 @@ namespace DFS.Views
             // don't do anything if we just de-selected the row.
             if (e.SelectedItem == null) return;
 
+
+
             // Deselect the item.
-            if (sender is ListView lv) lv.SelectedItem = null;
+            if (sender is ListView lv)
+            {
+                Models.LoginResponse.Services service = (Models.LoginResponse.Services)e.SelectedItem;
+                profileViewModel.ServiceDesc = service.ChargingPeriod;
+                ServiceLabel.IsVisible = true;
+                lv.SelectedItem = null;
+            }
         }
 
         void Handle_PanUpdated(object sender, Xamarin.Forms.PanUpdatedEventArgs e)

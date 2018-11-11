@@ -23,6 +23,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _serviceDesc;
+        public String ServiceDesc
+        {
+            get
+            {
+                return _serviceDesc;
+            }
+            set
+            {
+                _serviceDesc = value;
+                RaisePropertyChanged(nameof(ServiceDesc));
+            }
+        }
+
         private String _trainerSpeciality;
         public String TrainerSpeciality
         {
@@ -192,8 +206,8 @@ namespace DFS.ViewModels
             }
         }
 
-        private ObservableCollection<String> _serviceListData;
-        public ObservableCollection<String> ServiceListData
+        private ObservableCollection<Models.LoginResponse.Services> _serviceListData;
+        public ObservableCollection<Models.LoginResponse.Services> ServiceListData
         {
             get { return _serviceListData; }
             set
@@ -209,22 +223,25 @@ namespace DFS.ViewModels
 
         public ProfileViewModel()
         {
+            ServiceListData = new ObservableCollection<Models.LoginResponse.Services>();
 
             Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
 
             TrainerName = syncLoginResponse.Name;
-            TrainerCert = syncLoginResponse.Accolades;
+            TrainerCert = syncLoginResponse.Certification;
             TrainingPlace = syncLoginResponse.Address;
             TrainerAccolades = syncLoginResponse.Accolades;
             TrainerExperience = syncLoginResponse.Experience;
-            TrainerSpeciality = syncLoginResponse.Accolades;
+            TrainerSpeciality = syncLoginResponse.Speciality;
 
-
-            _serviceListData = new ObservableCollection<string>();
-            _serviceListData.Add("Data");
-            _serviceListData.Add("Data");
-            _serviceListData.Add("Data");
-            _serviceListData.Add("Data");
+            foreach (var item in App.LoginResponse.member)
+            {
+                if (item.Profile == App.SelectedView)
+                {
+                    ServiceListData = item.professionalInfo.services;
+                }
+            }
+           
 
             _selectedIndex = 0;
 
@@ -232,7 +249,7 @@ namespace DFS.ViewModels
             _isReviewsVisible = false;
             _isServiceVisible = false;
 
-            _profileColor = Color.Green;
+            _profileColor = Color.LimeGreen;
             _reviewColor = Color.White;
             _serviceColor = Color.White;
 
@@ -262,7 +279,7 @@ namespace DFS.ViewModels
             IsReviewsVisible = false;
             IsProfileVisible = false;
 
-            ServiceColor = Color.Green;
+            ServiceColor = Color.LimeGreen;
             ReviewColor = Color.White;
             ProfileColor = Color.White;
         }
@@ -275,7 +292,7 @@ namespace DFS.ViewModels
             IsProfileVisible = false;
 
             ServiceColor = Color.White;
-            ReviewColor = Color.Green;
+            ReviewColor = Color.LimeGreen;
             ProfileColor = Color.White;
         }
 
@@ -288,7 +305,7 @@ namespace DFS.ViewModels
 
             ServiceColor = Color.White;
             ReviewColor = Color.White;
-            ProfileColor = Color.Green;
+            ProfileColor = Color.LimeGreen;
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

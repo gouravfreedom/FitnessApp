@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using SQLite;
 
@@ -83,6 +84,33 @@ namespace DFS.Models
 
             [JsonProperty("accolades")]
             public String Accolades { get; set; }
+
+            [JsonProperty("certifications")]
+            public List<Certifications> certifications { get; set; }
+
+            [JsonProperty("services")]
+            public ObservableCollection<Services> services { get; set; }
+        }
+
+
+        public class Certifications
+        {
+            [JsonProperty("certification")]
+            public String Certification { get; set; }
+
+        }
+
+        public class Services
+        {
+            [JsonProperty("serviceName")]
+            public String ServiceName { get; set; }
+
+            [JsonProperty("charges")]
+            public String Charges { get; set; }
+
+            [JsonProperty("chargingPeriod")]
+            public String ChargingPeriod { get; set; }
+
         }
 
         [Table("SYNC_LOGIN")]
@@ -109,6 +137,7 @@ namespace DFS.Models
             public String Speciality { get; set; }
             public String Experience { get; set; }
             public String Accolades { get; set; }
+            public String Certification { get; set; }
         }
 
 

@@ -410,9 +410,9 @@ namespace DFS.ViewModels
             }
         }
 
-        private String _servicesPrice { get; set; }
+        private int _servicesPrice { get; set; }
 
-        public String ServicesPrice
+        public int ServicesPrice
         {
             get
             {
@@ -574,9 +574,9 @@ namespace DFS.ViewModels
             // Add Services
             List<Models.TraineeSignupModel.Services> services = new List<Models.TraineeSignupModel.Services>();
             Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
-            service.chargingPeriod = "hours";
+            service.chargingPeriod = ServiceInfo;
             service.serviceName = Services;
-            service.charges = 10;
+            service.charges = ServicesPrice;
 
             services.Add(service);
 

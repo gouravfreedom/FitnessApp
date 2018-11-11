@@ -21,6 +21,12 @@ namespace DFS.Views
                 signupViewModel.IsTrainerView = true; 
             }
 
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", async (sender) =>
             {
                 await this.Navigation.PushAsync(new RootPage(signupViewModel.SelectedView));
@@ -30,8 +36,14 @@ namespace DFS.Views
             {
                 await DisplayAlert("Alert", message, "Ok");
             });
+        }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
 
+            MessagingCenter.Unsubscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess");
+            MessagingCenter.Unsubscribe<ViewModels.SignupViewModel, String>(this, "SignUpFailure");
         }
 
         async void Handle_PictureTapped(object sender, System.EventArgs e)

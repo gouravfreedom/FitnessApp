@@ -19,8 +19,20 @@
             <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource GreenColor}">
                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         
-                        <Image x:Name="ProfileImage" HeightRequest="120" WidthRequest="120" />
-                        <Label Text="" Font="Bold" FontSize="20"/>
+                        <Frame 
+                                CornerRadius="60"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                IsClippedToBounds="true"
+                                Margin="0"
+                                Padding="0"
+                                WidthRequest="120"
+                                MinimumWidthRequest="120"
+                                MinimumHeightRequest="120"
+                                HeightRequest="120">
+                            <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="profile1.jpeg"/>
+                        </Frame>
+                        <Label x:Name="ProfileName" Font="Bold" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
             </StackLayout>
             <StackLayout Grid.Row="1" BackgroundColor="{StaticResource BackColor}">

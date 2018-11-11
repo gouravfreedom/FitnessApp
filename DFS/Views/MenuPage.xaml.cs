@@ -29,7 +29,8 @@ namespace DFS
             };
 
             Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
-            ProfileImage.Source = syncLoginResponse.ImageUrl;
+            //ProfileImage.Source = syncLoginResponse.ImageUrl;
+            ProfileName.Text = syncLoginResponse.Name;
 
             if (App.SelectedView == "Trainer")
             {

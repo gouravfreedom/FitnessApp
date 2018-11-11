@@ -8,7 +8,9 @@ namespace DFS
 
         public static Service.DatabaseManager DatabaseManager { get; private set; }
 
-        public static string SelectedView;
+        public static string SelectedView { get; set; }
+
+        public static Models.LoginResponse LoginResponse { get; set; }
 
         public App()
         {

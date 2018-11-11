@@ -119,6 +119,12 @@ namespace DFS
                         syncLoginResponse.Speciality = signupModel.professionalInfo.speciality;
                         syncLoginResponse.Experience = signupModel.professionalInfo.experience;
                         syncLoginResponse.Accolades = signupModel.professionalInfo.accolades;
+                        syncLoginResponse.Certification = "";
+
+                        foreach(var item in signupModel.professionalInfo.certifications)
+                        {
+                            syncLoginResponse.Certification += item.certification = " ";
+                        }
 
                         db.Insert(syncLoginResponse);
 
@@ -169,6 +175,8 @@ namespace DFS
                         var responseJson = response.Content.ReadAsStringAsync().Result;
                         LoginResponse responseItem = JsonConvert.DeserializeObject<Models.LoginResponse>(responseJson);
 
+                        App.LoginResponse = responseItem;
+
                         LoginResponse.SyncLoginResponse syncLoginResponse;
 
                         foreach (var item in responseItem.member)
@@ -195,7 +203,12 @@ namespace DFS
                             syncLoginResponse.Speciality = item.professionalInfo.Speciality;
                             syncLoginResponse.Experience = item.professionalInfo.Experience;
                             syncLoginResponse.Accolades = item.professionalInfo.Accolades;
+                            syncLoginResponse.Certification = "";
 
+                            foreach (var syncItem in item.professionalInfo.certifications)
+                            {
+                                syncLoginResponse.Certification += syncItem.Certification;
+                            }
                             db.Insert(syncLoginResponse);
                         }
 

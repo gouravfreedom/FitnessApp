@@ -19,26 +19,42 @@ namespace DFS
             BindingContext = userProfileViewModel = new UserProfileViewModel();
             userProfileViewModel.SelectedView = _selectedView;
 
+
+
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
             MessagingCenter.Subscribe<UserProfileViewModel, String>(this, "LoginSuccess", async (sender, message) =>
             {
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginSuccess");
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginFailure");
                 if (message == "NAV")
                 {
-                    await DisplayAlert("Alert","No user exist. Please sign up.","OK");
+                    await DisplayAlert("Alert", "No user exist. Please sign up.", "OK");
 
                 }
-                else{
-                    await this.Navigation.PushAsync(new RootPage(_selectedView));
+                else
+                {
+                    await this.Navigation.PushAsync(new RootPage(userProfileViewModel.SelectedView));
                 }
             });
 
-            MessagingCenter.Subscribe<UserProfileViewModel, string>(this, "LoginFailure", async (sender, message) =>
+            MessagingCenter.Subscribe<UserProfileViewModel, String>(this, "LoginFailure", async (sender, message) =>
             {
 
                 await DisplayAlert("Alert", message, "Ok");
             });
+        }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            MessagingCenter.Unsubscribe<UserProfileViewModel, String>(this, "LoginSuccess");
+            MessagingCenter.Unsubscribe<UserProfileViewModel, String>(this, "LoginFailure");
         }
 
         async void Handle_Facebook(object sender, System.EventArgs e)
