@@ -228,26 +228,24 @@ namespace DFS.ViewModels
             //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
 
             TrainerName = App.LoginResponse.basicInfo.Name;
-            TrainerCert = App.LoginResponse.professionalInfo.certifications.ToString();
             TrainingPlace = App.LoginResponse.basicInfo.Address;
             TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
             TrainerExperience = App.LoginResponse.professionalInfo.Experience;
             TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
 
             ServiceListData = App.LoginResponse.professionalInfo.services;
-                
 
+            TrainerCert = "";
+
+            foreach(var item in App.LoginResponse.professionalInfo.certifications)
+            {
+                TrainerCert += item.Certification + " | ";
+            }
            
 
-            _selectedIndex = 0;
+            SelectedIndex = 0;
 
-            _isProfileVisible = true;
-            _isReviewsVisible = false;
-            _isServiceVisible = false;
-
-            _profileColor = Color.LimeGreen;
-            _reviewColor = Color.White;
-            _serviceColor = Color.White;
+            HandleSwipe();
 
             ServiceCommand = new Command(() => HandleServiceSelection());
             ReviewCommand = new Command(() => HandleReviewSelection());
