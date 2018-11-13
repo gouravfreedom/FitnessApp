@@ -34,11 +34,11 @@ namespace DFS.ViewModels
 
         public TraineeProfileViewModel()
         {
-            Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse("Trainee");
+            //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse("Trainee");
 
-            TraineeName = syncLoginResponse.Name;
-            TraineeGoals = syncLoginResponse.Email;
-            TraineeInterest = syncLoginResponse.Speciality;
+            TraineeName = App.LoginResponse.basicInfo.Name;
+            TraineeGoals = App.LoginResponse.professionalInfo.Speciality;
+            TraineeInterest = App.LoginResponse.professionalInfo.Speciality;
 
         }
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
-using SQLite;
 
 namespace DFS.Models
 {
@@ -113,10 +112,8 @@ namespace DFS.Models
 
         }
 
-        [Table("SYNC_LOGIN")]
         public class SyncLoginResponse
         {
-            [AutoIncrement, PrimaryKey]
             public int ID { get; set; }
             public String Status { get; set; }
             public String Profile { get; set; }

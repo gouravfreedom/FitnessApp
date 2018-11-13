@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using DFS.Models;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
-using SQLite;
 using Xamarin.Forms;
 
 namespace DFS
@@ -16,18 +15,11 @@ namespace DFS
     public class HTTPService : IRestService
 	{
 		HttpClient client;
-        SQLiteConnection db;
 
         public HTTPService()
 		{			
 			client = new HttpClient();
 			client.MaxResponseContentBufferSize = 256000;
-
-            // DatabaseIntegration
-            var databasePath = DependencyService.Get<IPlatformPath>().GetPlatformPath("Fitness.db");
-            db = new SQLiteConnection(databasePath);
-
-            db.CreateTable<LoginResponse.SyncLoginResponse>();
 
         }
 
@@ -50,8 +42,6 @@ namespace DFS
 
                     if (response.IsSuccessStatusCode)
                     {
-                        Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
-                        Debug.WriteLine("Response" + response.ToString());
                         var responseJson = response.Content.ReadAsStringAsync().Result;
                         trainerListModel = JsonConvert.DeserializeObject<TrainerListModel>(responseJson);
 
@@ -96,40 +86,18 @@ namespace DFS
 
                     if (response.IsSuccessStatusCode)
                     {
-                        Debug.WriteLine("ContBCGNVGent" + response.Content.ReadAsStringAsync().Result);
-                        Debug.WriteLine("Response" + response.ToString());
 
-                        LoginResponse.SyncLoginResponse syncLoginResponse = new LoginResponse.SyncLoginResponse();
+                        LoginRequestModel loginRequestModel = new LoginRequestModel("App", signupModel.email, App.SelectedView, signupModel.email);
+                        var message = await App.TodoManager.Login(loginRequestModel);
 
-                        syncLoginResponse.Status = "AV";
-                        syncLoginResponse.Profile = App.SelectedView;
-                        syncLoginResponse.SignUpMetod = "App";
-                        syncLoginResponse.Password = "";
-                        syncLoginResponse.Email = "";
-                        syncLoginResponse.Name = signupModel.basicInfo.name;
-                        syncLoginResponse.Gender = signupModel.basicInfo.gender;
-                        syncLoginResponse.Country = signupModel.basicInfo.country;
-                        syncLoginResponse.State = signupModel.basicInfo.state;
-                        syncLoginResponse.Address = signupModel.basicInfo.address;
-                        syncLoginResponse.ImageUrl = signupModel.basicInfo.imageUrl;
-                        syncLoginResponse.PhoneNumber = signupModel.basicInfo.phoneNumber;
-                        syncLoginResponse.InstaGramId = signupModel.basicInfo.instaGramId;
-                        syncLoginResponse.Latitude = signupModel.basicInfo.latitude;
-                        syncLoginResponse.Longitude = signupModel.basicInfo.longitude;
-                        syncLoginResponse.Speciality = signupModel.professionalInfo.speciality;
-                        syncLoginResponse.Experience = signupModel.professionalInfo.experience;
-                        syncLoginResponse.Accolades = signupModel.professionalInfo.accolades;
-                        syncLoginResponse.Certification = "";
-
-                        foreach(var item in signupModel.professionalInfo.certifications)
+                        if (message == "Success")
                         {
-                            syncLoginResponse.Certification += item.certification = " ";
+                            return "Success";
                         }
-
-                        db.Insert(syncLoginResponse);
-
-
-                        return "Success";
+                        else
+                        {
+                            return "Internal Server Error. Please try again.";
+                        }
 
                     }
                     else
@@ -168,48 +136,17 @@ namespace DFS
 
                     response = await client.PostAsync(uri, content);
 
-                    db.Query<LoginResponse.SyncLoginResponse>("DELETE FROM SYNC_LOGIN");
-
                     if (response.IsSuccessStatusCode)
                     {
                         var responseJson = response.Content.ReadAsStringAsync().Result;
                         LoginResponse responseItem = JsonConvert.DeserializeObject<Models.LoginResponse>(responseJson);
 
-                        App.LoginResponse = responseItem;
-
-                        LoginResponse.SyncLoginResponse syncLoginResponse;
-
                         foreach (var item in responseItem.member)
                         {
-
-                            syncLoginResponse = new LoginResponse.SyncLoginResponse();
-
-                            syncLoginResponse.Status = item.Status;
-                            syncLoginResponse.Profile = item.Profile;
-                            syncLoginResponse.SignUpMetod = item.SignUpMetod;
-                            syncLoginResponse.Password = item.Password;
-                            syncLoginResponse.Email = item.Email;
-                            syncLoginResponse.Name = item.basicInfo.Name;
-                            syncLoginResponse.Gender = item.basicInfo.Gender;
-                            syncLoginResponse.Country = item.basicInfo.Country;
-                            syncLoginResponse.State = item.basicInfo.State;
-                            syncLoginResponse.Address = item.basicInfo.Address;
-                            syncLoginResponse.ImageUrl = item.basicInfo.ImageUrl;
-                            syncLoginResponse.PhoneNumber = item.basicInfo.PhoneNumber;
-                            syncLoginResponse.InstaGramId = item.basicInfo.InstaGramId;
-                            syncLoginResponse.Latitude = item.basicInfo.Latitude;
-                            syncLoginResponse.Longitude = item.basicInfo.Longitude;
-                            syncLoginResponse.DeletionFlag = item.basicInfo.DeletionFlag;
-                            syncLoginResponse.Speciality = item.professionalInfo.Speciality;
-                            syncLoginResponse.Experience = item.professionalInfo.Experience;
-                            syncLoginResponse.Accolades = item.professionalInfo.Accolades;
-                            syncLoginResponse.Certification = "";
-
-                            foreach (var syncItem in item.professionalInfo.certifications)
+                            if (item.Profile == App.SelectedView)
                             {
-                                syncLoginResponse.Certification += syncItem.Certification;
+                                App.LoginResponse = item;
                             }
-                            db.Insert(syncLoginResponse);
                         }
 
                         return "Success";

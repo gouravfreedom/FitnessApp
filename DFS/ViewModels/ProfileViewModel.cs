@@ -225,22 +225,18 @@ namespace DFS.ViewModels
         {
             ServiceListData = new ObservableCollection<Models.LoginResponse.Services>();
 
-            Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
+            //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
 
-            TrainerName = syncLoginResponse.Name;
-            TrainerCert = syncLoginResponse.Certification;
-            TrainingPlace = syncLoginResponse.Address;
-            TrainerAccolades = syncLoginResponse.Accolades;
-            TrainerExperience = syncLoginResponse.Experience;
-            TrainerSpeciality = syncLoginResponse.Speciality;
+            TrainerName = App.LoginResponse.basicInfo.Name;
+            TrainerCert = App.LoginResponse.professionalInfo.certifications.ToString();
+            TrainingPlace = App.LoginResponse.basicInfo.Address;
+            TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
+            TrainerExperience = App.LoginResponse.professionalInfo.Experience;
+            TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
 
-            foreach (var item in App.LoginResponse.member)
-            {
-                if (item.Profile == App.SelectedView)
-                {
-                    ServiceListData = item.professionalInfo.services;
-                }
-            }
+            ServiceListData = App.LoginResponse.professionalInfo.services;
+                
+
            
 
             _selectedIndex = 0;

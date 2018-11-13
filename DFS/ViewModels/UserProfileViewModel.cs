@@ -115,7 +115,7 @@ namespace DFS
 
                 if(message == "Success"){
 
-                    var data = App.DatabaseManager.SyncLoginResponse(SelectedView);
+                    var data = App.LoginResponse;
 
                     if(data.Profile == null || data.Profile == ""){
                         MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "NAV");

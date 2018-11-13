@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using SQLite;
 using Xamarin.Forms;
 using Plugin.Geolocator;
 using Plugin.Media;

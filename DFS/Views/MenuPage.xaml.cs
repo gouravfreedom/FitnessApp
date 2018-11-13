@@ -28,9 +28,9 @@ namespace DFS
                 Icon = "slideout.png"
             };
 
-            Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
-            //ProfileImage.Source = syncLoginResponse.ImageUrl;
-            ProfileName.Text = syncLoginResponse.Name;
+            //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
+            //ProfileImage.Source = App.LoginResponse.basicInfo.ImageUrl;
+            ProfileName.Text = App.LoginResponse.basicInfo.Name;
 
             if (App.SelectedView == "Trainer")
             {

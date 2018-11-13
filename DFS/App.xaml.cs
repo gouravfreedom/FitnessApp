@@ -10,7 +10,7 @@ namespace DFS
 
         public static string SelectedView { get; set; }
 
-        public static Models.LoginResponse LoginResponse { get; set; }
+        public static Models.LoginResponse.Member LoginResponse { get; set; }
 
         public App()
         {
