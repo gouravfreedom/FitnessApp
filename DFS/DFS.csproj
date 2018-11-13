@@ -35,28 +35,10 @@
     <EmbeddedResource Include="Views\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AboutPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\DataScroll.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\MapPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\LayoutPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\SignUp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\CameraPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\DatabasePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -67,27 +49,6 @@
     <EmbeddedResource Include="Views\PopUpView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SampleContentView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SignaturePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SwipeList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\Delete.png" />
-    <EmbeddedResource Include="Images\Favorites.png" />
-    <EmbeddedResource Include="Images\Favorites1.png" />
-    <EmbeddedResource Include="Images\InboxIcon.png" />
-    <EmbeddedResource Include="Images\LeftSwipIcon.png" />
-    <EmbeddedResource Include="Views\DownloadPDF.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelectionPage.xaml">
       <SubType>Designer</SubType>
@@ -119,7 +80,6 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Views\RootPage.cs" />
     <Compile Include="Utils\PasswordAdvisor.cs" />
     <Compile Include="Utils\PasswordScore.cs" />
@@ -130,36 +90,17 @@
     <Compile Include="Models\HomeMenuItem.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Controls\HanselmanNavigationPage.cs" />
-    <Compile Include="Views\AboutPage.xaml.cs">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service\HTTPService.cs" />
     <Compile Include="Service\IRestService.cs" />
     <Compile Include="Service\TodoItemManager.cs" />
-    <Compile Include="Models\TodoItem.cs" />
-    <Compile Include="Views\DataScroll.xaml.cs">
-      <DependentUpon>DataScroll.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ScrollC.cs" />
-    <Compile Include="Models\Stock.cs" />
-    <Compile Include="Models\Valuation.cs" />
     <Compile Include="Dependency\IPlatformPath.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Dependency\ICamera.cs" />
     <Compile Include="Views\MapPage1.xaml.cs">
       <DependentUpon>MapPage1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LayoutPage.xaml.cs">
-      <DependentUpon>LayoutPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CameraPage.xaml.cs">
-      <DependentUpon>CameraPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DatabasePage.xaml.cs">
-      <DependentUpon>DatabasePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\StackLayoutButton.xaml.cs">
       <DependentUpon>StackLayoutButton.xaml</DependentUpon>
@@ -167,24 +108,10 @@
     <Compile Include="Views\PopUpView.xaml.cs">
       <DependentUpon>PopUpView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SampleContentView.xaml.cs">
-      <DependentUpon>SampleContentView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SignaturePage.xaml.cs">
-      <DependentUpon>SignaturePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service\ISign.cs" />
-    <Compile Include="Views\SwipeList.xaml.cs">
-      <DependentUpon>SwipeList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\ListViewSwipingViewModel.cs" />
     <Compile Include="Models\ListViewInboxInfo.cs" />
-    <Compile Include="Models\ListViewInboxInfoRepository.cs" />
     <Compile Include="Utils\Converter.cs" />
     <Compile Include="Views\MarkingView.cs" />
-    <Compile Include="Views\DownloadPDF.xaml.cs">
-      <DependentUpon>DownloadPDF.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SelectionPage.xaml.cs">
       <DependentUpon>SelectionPage.xaml</DependentUpon>
     </Compile>
@@ -205,7 +132,6 @@
     <Compile Include="Controls\CornerLayout.cs" />
     <Compile Include="ViewModels\TrainerListViewModel.cs" />
     <Compile Include="Models\TrainerListModel.cs" />
-    <Compile Include="Models\TrainerListRequestModel.cs" />
     <Compile Include="Views\TraineeProfilePage.xaml.cs">
       <DependentUpon>TraineeProfilePage.xaml</DependentUpon>
     </Compile>
@@ -228,7 +154,6 @@
     <Folder Include="Controls\" />
     <Folder Include="Service\" />
     <Folder Include="Dependency\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

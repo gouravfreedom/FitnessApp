@@ -16,7 +16,6 @@ namespace FacebookLogin.Views
                 Text = "Login with Facebook",
                 TextColor = Color.White,
                 BackgroundColor = Color.FromHex("#01579B"),
-                Font = Font.BoldSystemFontOfSize(26),
                 FontSize = 26
             };
 

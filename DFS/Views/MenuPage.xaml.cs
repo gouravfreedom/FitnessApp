@@ -65,12 +65,12 @@ namespace DFS
 
             }
 
-            ListViewMenu.ItemSelected += async (sender, e) =>
+            ListViewMenu.ItemSelected +=  (sender, e) =>
             {
                 if (ListViewMenu.SelectedItem == null)
                     return;
 
-                await this.root.NavigateAsync((int)((HomeMenuItem)e.SelectedItem).MenuType);
+                this.root.NavigateAsync((int)((HomeMenuItem)e.SelectedItem).MenuType);
                 ((ListView)sender).SelectedItem = null;
             };
         }

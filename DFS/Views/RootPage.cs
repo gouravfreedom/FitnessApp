@@ -41,7 +41,7 @@ namespace DFS
 
 
 
-        public async Task NavigateAsync(int id)
+        public void NavigateAsync(int id)
         {
 
         	
