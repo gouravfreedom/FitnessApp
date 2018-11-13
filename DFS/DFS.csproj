@@ -35,9 +35,6 @@
     <EmbeddedResource Include="Views\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MapPage1.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\SignUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -45,10 +42,6 @@
     <EmbeddedResource Include="Controls\StackLayoutButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\PopUpView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelectionPage.xaml">
       <SubType>Designer</SubType>
@@ -67,6 +60,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TrainerProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Calender.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -96,21 +93,14 @@
     <Compile Include="Dependency\IPlatformPath.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Dependency\ICamera.cs" />
-    <Compile Include="Views\MapPage1.xaml.cs">
-      <DependentUpon>MapPage1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\StackLayoutButton.xaml.cs">
       <DependentUpon>StackLayoutButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PopUpView.xaml.cs">
-      <DependentUpon>PopUpView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service\ISign.cs" />
     <Compile Include="Utils\Converter.cs" />
-    <Compile Include="Views\MarkingView.cs" />
     <Compile Include="Views\SelectionPage.xaml.cs">
       <DependentUpon>SelectionPage.xaml</DependentUpon>
     </Compile>
@@ -144,6 +134,9 @@
     <Compile Include="Services\FacebookServices.cs" />
     <Compile Include="Models\FacebookProfile.cs" />
     <Compile Include="ViewModels\TraineeProfileViewModel.cs" />
+    <Compile Include="Views\Calender.xaml.cs">
+      <DependentUpon>Calender.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -160,9 +153,6 @@
   <ItemGroup>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.BehaviorsPack">
-      <HintPath>..\packages\Xamarin.Forms.BehaviorsPack.1.1.0\lib\netstandard1.0\Xamarin.Forms.BehaviorsPack.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
@@ -206,21 +196,6 @@
     <Reference Include="Plugin.PushNotification">
       <HintPath>..\packages\Plugin.PushNotification.1.3.0\lib\netstandard1.0\Plugin.PushNotification.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Maps">
-      <HintPath>..\packages\Xamarin.Forms.Maps.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Maps.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.GoogleMaps">
-      <HintPath>..\packages\Xamarin.Forms.GoogleMaps.2.3.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid70+MonoTouch10+Xamarin.iOS10+UAP10\Xamarin.Forms.GoogleMaps.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.Permissions">
       <HintPath>..\packages\Plugin.Permissions.3.0.0.12\lib\netstandard1.0\Plugin.Permissions.dll</HintPath>
     </Reference>
@@ -230,17 +205,23 @@
     <Reference Include="Plugin.Geolocator">
       <HintPath>..\packages\Xam.Plugin.Geolocator.4.5.0.6\lib\netstandard1.0\Plugin.Geolocator.dll</HintPath>
     </Reference>
-    <Reference Include="Rg.Plugins.Popup">
-      <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.145-pre\lib\netstandard1.0\Rg.Plugins.Popup.dll</HintPath>
-    </Reference>
-    <Reference Include="SignaturePad.Forms">
-      <HintPath>..\packages\Xamarin.Controls.SignaturePad.Forms.2.3.0\lib\portable-net45+win+wp8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SignaturePad.Forms.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.Connectivity.Abstractions">
       <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\netstandard1.0\Plugin.Connectivity.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Connectivity">
       <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\netstandard1.0\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

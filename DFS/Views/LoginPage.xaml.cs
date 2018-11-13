@@ -2,9 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Plugin.Geolocator;
 using Plugin.Media;
-using Rg.Plugins.Popup.Services;
 
 namespace DFS
 {

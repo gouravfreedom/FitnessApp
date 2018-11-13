@@ -254,7 +254,6 @@
     <Compile Include="Camera_Implementation_IOS.cs" />
     <Compile Include="Utils\Camera.cs" />
     <Compile Include="ISignService.cs" />
-    <Compile Include="MarkingViewRenderer.cs" />
     <Compile Include="Controls\CornerLayout_iOS.cs" />
   </ItemGroup>
   <ItemGroup>
