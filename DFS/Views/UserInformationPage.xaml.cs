@@ -23,6 +23,11 @@ namespace DFS.Views
 
         }
 
+        public UserInformationPage()
+        {
+
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

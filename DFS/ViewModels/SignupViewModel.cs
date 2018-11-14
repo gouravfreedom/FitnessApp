@@ -7,11 +7,16 @@ using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 using Plugin.Media;
 using System.Collections.Generic;
+using Plugin.Geolocator;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 
 namespace DFS.ViewModels
 {
     public class SignupViewModel : INotifyPropertyChanged
     {
+        private Plugin.Geolocator.Abstractions.Position position = new Plugin.Geolocator.Abstractions.Position();
+
         private Boolean _isTrainerView { get; set; }
 
         public Boolean IsTrainerView
@@ -410,9 +415,9 @@ namespace DFS.ViewModels
             }
         }
 
-        private int _servicesPrice { get; set; }
+        private string _servicesPrice { get; set; }
 
-        public int ServicesPrice
+        public string ServicesPrice
         {
             get
             {
@@ -460,6 +465,8 @@ namespace DFS.ViewModels
         {
 
         }
+
+        public Task Initialization { get; private set; }
 
         public SignupViewModel()
         {
@@ -513,6 +520,7 @@ namespace DFS.ViewModels
 
             _dateOfBirth = new DateTime(2000, 1, 1);
 
+            Initialization = InitializeAsync();
 
         }
 
@@ -537,24 +545,24 @@ namespace DFS.ViewModels
 
 
             Models.TraineeSignupModel.BasicInfo basicInfo = new Models.TraineeSignupModel.BasicInfo();
-            basicInfo.address = "dfdsf";
+            basicInfo.address = position.Accuracy + "";
             basicInfo.anyMedicalCondition = MedicalInfo;
-            basicInfo.country = "sdfjkdf";
+            basicInfo.country = position.Altitude + "";
             basicInfo.dateOfBirth = DateOfBirth.ToString();
             basicInfo.gender = GenderList[GenderIndex];
             basicInfo.height = Height + "";
             basicInfo.id = 1;
             basicInfo.imageUrl = "NA";
-            basicInfo.instaGramId = "sdfjk";
-            basicInfo.latitude = "56.9673483";
-            basicInfo.longitude = "-87.3794";
+            basicInfo.instaGramId = "NA";
+            basicInfo.latitude = position.Latitude + "";
+            basicInfo.longitude = position.Longitude + "";
             basicInfo.mobileNumber = TelephoneNumber + "";
             basicInfo.name = Name;
             basicInfo.phoneNumber = TelephoneNumber + "";
             basicInfo.sportsInterest = SportsList[SportsIndex];
-            basicInfo.state = "sdfjkj";
+            basicInfo.state = "NA";
             basicInfo.title = TitleList[TitleIndex];
-            basicInfo.valueAdded = "dsfjk";
+            basicInfo.valueAdded = "NA";
             basicInfo.weight = Weight + "";
 
             Models.TraineeSignupModel.ProfessionalInfo professionalInfo = new Models.TraineeSignupModel.ProfessionalInfo();
@@ -576,7 +584,7 @@ namespace DFS.ViewModels
             Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
             service.chargingPeriod = ServiceInfo;
             service.serviceName = Services;
-            service.charges = ServicesPrice;
+            service.charges = Convert.ToInt16(ServicesPrice);
 
             services.Add(service);
 
@@ -599,6 +607,65 @@ namespace DFS.ViewModels
             }
 
             IsServiceInProgress = false;
+
+        }
+
+        private async Task InitializeAsync()
+        {
+
+            try
+            {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+                if (status != PermissionStatus.Granted)
+                {
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Location))
+                        status = results[Permission.Location];
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
+                    GetCurrentPosition();
+
+                }
+                else if (status != PermissionStatus.Unknown)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Unable to get location: " + ex);
+
+            }
+
+
+        }
+
+
+        private async void GetCurrentPosition()
+        {
+
+            try
+            {
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 100;
+
+
+                position = await locator.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);
+                if (position == null)
+                {
+                    position = await locator.GetLastKnownLocationAsync();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Unable to get location: " + ex);
+            }
 
         }
 

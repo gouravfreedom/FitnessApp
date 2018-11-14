@@ -23,6 +23,8 @@
             <Color x:Key="InstaColor">#7c1a2c</Color>
             <Color x:Key="fbColor">#2b4088</Color>
             <Color x:Key="GreenColor">#9BD000</Color>
+            <Color x:Key="UserBack">#CCCCCC</Color>
+            <Color x:Key="UserText">#666666</Color>
 
 
             <Style TargetType="NavigationPage">
