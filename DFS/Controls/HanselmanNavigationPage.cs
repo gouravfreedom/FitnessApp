@@ -18,7 +18,7 @@ namespace DFS
         void Init()
         {
 
-            BarBackgroundColor = Color.FromHex("#181113");
+            BarBackgroundColor = Color.FromHex("#191613");
             BarTextColor = Color.White;
             Icon = "about.png";
         }

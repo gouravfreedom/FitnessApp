@@ -17,6 +17,10 @@ namespace DFS.Views
 
             
         }
+        void Handle_Tapped(object sender, System.EventArgs e)
+        {
+            this.Navigation.PushAsync(new UserInformationPage(new ViewModels.SignupViewModel()));
+        }
 
         void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {

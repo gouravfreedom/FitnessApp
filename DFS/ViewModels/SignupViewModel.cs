@@ -510,8 +510,6 @@ namespace DFS.ViewModels
 
             _user64String = "NA";
 
-            _isTrainerView = false;
-
             // Intialize commands
             SaveCommand = new Command(() => SaveClicked());
             PictureCommand = new Command(() => SelectImage());
@@ -615,6 +613,8 @@ namespace DFS.ViewModels
 
             try
             {
+                CheckUpdateProfile();
+
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
                 if (status != PermissionStatus.Granted)
                 {
@@ -641,6 +641,44 @@ namespace DFS.ViewModels
             }
 
 
+        }
+
+        private void CheckUpdateProfile()
+        {
+            if (App.LoginResponse == null || App.LoginResponse.Email == "" || App.LoginResponse.Email == null)
+            {
+                // Do nothing if no data is available
+            }
+            else
+            {
+                Name = App.LoginResponse.basicInfo.Name;
+                Height = App.LoginResponse.basicInfo.Height;
+                Weight = App.LoginResponse.basicInfo.Weight;
+                TelephoneNumber = App.LoginResponse.basicInfo.PhoneNumber;
+                DateOfBirth = DateTime.Parse(App.LoginResponse.basicInfo.DateOfBirth);
+                MedicalInfo = App.LoginResponse.basicInfo.AnyMedicalCondition;
+
+                GenderIndex = GenderList.IndexOf( App.LoginResponse.basicInfo.Gender);
+                TitleIndex = TitleList.IndexOf(App.LoginResponse.basicInfo.Title);
+
+                if (App.SelectedView == "Trainer")
+                {
+                    SpecialityIndex = SpecialityList.IndexOf(App.LoginResponse.professionalInfo.Speciality);
+                    Experience = App.LoginResponse.professionalInfo.Experience;
+                    Accolades = App.LoginResponse.professionalInfo.Accolades;
+                    Certification = App.LoginResponse.professionalInfo.certifications[0].Certification;
+                    Services = App.LoginResponse.professionalInfo.services[0].ServiceName;
+                    ServiceInfo = App.LoginResponse.professionalInfo.services[0].ChargingPeriod;
+                    ServicesPrice = App.LoginResponse.professionalInfo.services[0].Charges;
+                }
+
+                EmailAddress = App.LoginResponse.Email;
+                Password = App.LoginResponse.Password;
+                User64String = App.LoginResponse.ImagePayload;
+                SelectedView = App.SelectedView;
+
+            }
+            
         }
 
 

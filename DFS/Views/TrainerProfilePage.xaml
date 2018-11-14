@@ -16,7 +16,13 @@
                 <!-- Header View  -->
                 <StackLayout BackgroundColor="Gray" Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                     
-                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                     <Image HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" Margin="0,20,20,0" Source="edit_icon">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    
+                    <StackLayout Margin="0,-20,0,0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                         <Frame 
                                 CornerRadius="60"
                                 HorizontalOptions="CenterAndExpand"

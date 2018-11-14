@@ -27,6 +27,9 @@ namespace DFS.Models
             [JsonProperty("email")]
             public String Email { get; set; }
 
+            [JsonProperty("imagePayload")]
+            public String ImagePayload { get; set; }
+
             [JsonProperty("basicInfo")]
             public BasicInfo basicInfo { get; set; }
 
@@ -57,6 +60,9 @@ namespace DFS.Models
             [JsonProperty("imageUrl")]
             public String ImageUrl { get; set; }
 
+            [JsonProperty("sportsInterest")]
+            public String SportsInterest { get; set; }
+
             [JsonProperty("phoneNumber")]
             public String PhoneNumber { get; set; }
 
@@ -71,6 +77,21 @@ namespace DFS.Models
 
             [JsonProperty("deletionFlag")]
             public String DeletionFlag { get; set; }
+
+            [JsonProperty("weight")]
+            public String Weight { get; set; }
+
+            [JsonProperty("height")]
+            public String Height { get; set; }
+
+            [JsonProperty("anyMedicalCondition")]
+            public String AnyMedicalCondition { get; set; }
+
+            [JsonProperty("dateOfBirth")]
+            public String DateOfBirth { get; set; }
+
+            [JsonProperty("title")]
+            public String Title { get; set; }
         }
 
         public class ProfessionalInfo

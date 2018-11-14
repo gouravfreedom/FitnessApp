@@ -35,7 +35,7 @@ namespace DFS
                 }
                 else
                 {
-                    await this.Navigation.PushAsync(new RootPage(userProfileViewModel.SelectedView));
+                    Application.Current.MainPage =  new RootPage(userProfileViewModel.SelectedView);
                 }
             });
 

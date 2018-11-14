@@ -20,7 +20,7 @@ namespace DFS
 
             DatabaseManager = new Service.DatabaseManager(new Service.DatabaseService());
 
-            MainPage = new NavigationPage( new Views.SelectionPage());
+            MainPage = new HanselmanNavigationPage( new Views.SelectionPage());
         }
 
         protected override void OnStart()

@@ -32,9 +32,9 @@ namespace DFS.Views
         {
             base.OnAppearing();
 
-            MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", async (sender) =>
+            MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", (sender) =>
             {
-                await this.Navigation.PushAsync(new RootPage(signupViewModel.SelectedView));
+                Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
             });
 
             MessagingCenter.Subscribe<ViewModels.SignupViewModel, String>(this, "SignUpFailure", async (sender, message) =>

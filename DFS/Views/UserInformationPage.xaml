@@ -32,8 +32,8 @@
                                 </StackLayout>
 
                                 <StackLayout Margin="20,0">
-                                    <Label Text="Name" TextColor="White" Font="Bold"/>
-                                    <Picker SelectedIndex="{Binding TitleSelectIndex}" ItemsSource="{Binding TitleList}" Title="Select Title" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
+                                    <Label Text="Title" TextColor="White" Font="Bold"/>
+                                    <Picker SelectedIndex="{Binding TitleIndex}" ItemsSource="{Binding TitleList}" Title="Select Title" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
                                 </StackLayout>
 
                                 <StackLayout Margin="20,0">

@@ -37,8 +37,8 @@ namespace DFS.ViewModels
             //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse("Trainee");
 
             TraineeName = App.LoginResponse.basicInfo.Name;
-            TraineeGoals = App.LoginResponse.professionalInfo.Speciality;
-            TraineeInterest = App.LoginResponse.professionalInfo.Speciality;
+            TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
+            TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
 
         }
 

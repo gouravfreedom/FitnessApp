@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage NavigationPage.HasNavigationBar="false" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.SelectionPage">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                <Frame WidthRequest="220"                          
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand"
-                       CornerRadius="10"
-                       OutlineColor="{StaticResource GreenColor}"
-                       x:Name="TrainerFrame"
-                       BackgroundColor="Transparent">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Handle_TrainerAsync"/>
-                    </Frame.GestureRecognizers>
-                    <Label x:Name="TrainerLabel" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="I'M A TRAINER" TextColor="{StaticResource GreenColor}"/>
-                 </Frame>
+        <AbsoluteLayout>
 
-                <Frame WidthRequest="220"
-                       Margin="0,20,0,0"
-                       HorizontalOptions="Center"
-                       HasShadow="true"
-                       OutlineColor="{StaticResource GreenColor}"
-                       CornerRadius="15"
-                       x:Name="TraineeFrame"
-                       VerticalOptions="CenterAndExpand"
-                       BackgroundColor="Transparent">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Handle_TraineeAsync"/>
-                    </Frame.GestureRecognizers>
-                    <Label x:Name="TraineeLabel" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="I'M A TRAINEE" TextColor="{StaticResource GreenColor}"/>
-                 </Frame>
-            </StackLayout>
+             <Image Source="trainmeback"
+                    Aspect="AspectFill"
+                    BackgroundColor="{StaticResource BackColor}"
+                    AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                    AbsoluteLayout.LayoutFlags="All"/>
+                
             
-        </StackLayout>
+        
+            <StackLayout AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                        AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                    <Frame WidthRequest="220"                          
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand"
+                           CornerRadius="10"
+                           OutlineColor="{StaticResource GreenColor}"
+                           x:Name="TrainerFrame"
+                           BackgroundColor="Transparent">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Handle_TrainerAsync"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="TrainerLabel" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="I'M A TRAINER" TextColor="{StaticResource GreenColor}"/>
+                     </Frame>
+
+                    <Frame WidthRequest="220"
+                           Margin="0,20,0,0"
+                           HorizontalOptions="Center"
+                           HasShadow="true"
+                           OutlineColor="{StaticResource GreenColor}"
+                           CornerRadius="15"
+                           x:Name="TraineeFrame"
+                           VerticalOptions="CenterAndExpand"
+                           BackgroundColor="Transparent">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Handle_TraineeAsync"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="TraineeLabel" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="I'M A TRAINEE" TextColor="{StaticResource GreenColor}"/>
+                     </Frame>
+                </StackLayout>
+                
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -25,7 +25,7 @@ namespace DFS
             if (_selectedView == "Trainee")
             {
 
-                Pages.Add((int)MenuType.TraineeProfile, new HanselmanNavigationPage(new Views.TraineeProfilePage()));
+                Pages.Add((int)MenuType.TraineeProfile, new HanselmanNavigationPage(new Views.TraineeProfilePage(this)));
                 Detail = Pages[(int)MenuType.TraineeProfile];
                 Detail.BackgroundColor = Color.Purple;
             }else
@@ -52,7 +52,7 @@ namespace DFS
         		switch (id)
         		{
                     case (int)MenuType.TraineeProfile:
-                        Pages.Add(id, new HanselmanNavigationPage(new Views.TraineeProfilePage()));
+                        Pages.Add(id, new HanselmanNavigationPage(new Views.TraineeProfilePage(this)));
                         break;
 
                     case (int)MenuType.TrainerProfile:
@@ -62,8 +62,10 @@ namespace DFS
                     case (int)MenuType.CoachList:
                         Pages.Add(id, new HanselmanNavigationPage(new Views.CoachListPage()));
         				break;
+                  
 
                     case (int)MenuType.Logout:
+                        App.LoginResponse = new Models.LoginResponse.Member();
                         Application.Current.MainPage = new NavigationPage(new Views.SelectionPage());
                         //await this.Navigation.PushAsync(new NavigationPage(new LoginPage(selectedView)));
                         return;

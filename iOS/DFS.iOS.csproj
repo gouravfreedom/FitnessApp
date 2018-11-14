@@ -226,6 +226,14 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iphonespot%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iphonespot%403x.png" />
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 1x.png" />
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 2x.png" />
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 3x.png" />
+    <ImageAsset Include="Assets.xcassets\trainmeback.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\trainmeback.imageset\__TrainMe 1x.png" />
+    <ImageAsset Include="Assets.xcassets\trainmeback.imageset\__TrainMe 2x.png" />
+    <ImageAsset Include="Assets.xcassets\trainmeback.imageset\__TrainMe 3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -239,6 +247,8 @@
     <Folder Include="Assets.xcassets\login_logo.imageset\" />
     <Folder Include="Assets.xcassets\gray_cal.imageset\" />
     <Folder Include="Assets.xcassets\lightgray_cal.imageset\" />
+    <Folder Include="Assets.xcassets\edit_icon.imageset\" />
+    <Folder Include="Assets.xcassets\trainmeback.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
