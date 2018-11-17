@@ -42,7 +42,7 @@
                     </StackLayout>
                     
                     <Label Text="{Binding TraineeName}" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
-                    <Frame CornerRadius="5" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource GreenColor}" Padding="70,10" Margin="0,0,0,10">
+                    <Frame HasShadow="false" CornerRadius="5" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource GreenColor}" Padding="70,10" Margin="0,0,0,10">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Handle_TraineMe"/>
                         </Frame.GestureRecognizers>

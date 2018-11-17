@@ -36,6 +36,9 @@ namespace DFS.Views
                 profileViewModel.ServiceDesc = service.ChargingPeriod;
                 ServiceLabel.IsVisible = true;
                 lv.SelectedItem = null;
+
+                this.Navigation.PushAsync(new CalenderPage());
+
             }
         }
 

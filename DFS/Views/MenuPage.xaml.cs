@@ -40,7 +40,7 @@ namespace DFS
                     new HomeMenuItem { Title = "Settings", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Notifications", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Legal", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Connect", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
+                    //new HomeMenuItem { Title = "Connect", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Events", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Logout", MenuType = MenuType.Logout, Icon ="about.png" }
 
@@ -57,7 +57,7 @@ namespace DFS
                     new HomeMenuItem { Title = "Notifications", MenuType = MenuType.CoachList, Icon ="about.png" },
                     new HomeMenuItem { Title = "Previous transaction", MenuType = MenuType.CoachList, Icon ="about.png" },
                     new HomeMenuItem { Title = "Legal", MenuType = MenuType.CoachList, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Connect", MenuType = MenuType.CoachList, Icon ="about.png" },
+                    //new HomeMenuItem { Title = "Connect", MenuType = MenuType.CoachList, Icon ="about.png" },
                     new HomeMenuItem { Title = "Events", MenuType = MenuType.CoachList, Icon ="about.png" },
                     new HomeMenuItem { Title = "Logout", MenuType = MenuType.Logout, Icon ="about.png" }
 

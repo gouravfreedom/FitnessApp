@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.CalenderPage"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <ContentPage.Content>
+        
+        <AbsoluteLayout>
+        
+            <StackLayout
+                 AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Margin="0,20,0,0">
+                    <Image HeightRequest="50" WidthRequest="50" Source="green_cal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Image>
+                </StackLayout>
+                
+                <ScrollView Margin="0,40,0,0">
+                    <controls:Calendar 
+                        SelectedDate="{Binding Date}"
+                        SpecialDates="{Binding Attendances}"
+                        DateCommand="{Binding DateChosen}" 
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="StartAndExpand"  
+                        x:Name="calendar" />
+                </ScrollView>
+            </StackLayout>
+            
+            <StackLayout
+                x:Name="OpaqueView"
+                IsVisible="false"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All"
+                Opacity="0.2" BackgroundColor="Black">
+                </StackLayout>
+            
+            <StackLayout
+                x:Name="TimeView"
+                IsVisible="false"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All"
+                >
+                
+                
+                <StackLayout HeightRequest="300" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                    <ListView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        
+                          <ListView.ItemsSource>
+                              <x:Array Type="{x:Type x:String}">
+                                <x:String>9:00 AM</x:String>
+                                <x:String>10:00 AM</x:String>
+                                <x:String>11:00 AM</x:String>
+                                <x:String>12:00 AM</x:String>
+                                <x:String>1:00 PM</x:String>
+                                <x:String>2:00 PM</x:String>
+                                <x:String>3:00 PM</x:String>
+                                <x:String>4:00 PM</x:String>
+                                <x:String>5:00 PM</x:String>
+                              </x:Array>
+                          </ListView.ItemsSource>
+                        
+                        <ListView.ItemTemplate>
+                          <DataTemplate>
+                                <ViewCell>
+                                    <Label HorizontalOptions="CenterAndExpand" TextColor="Black" Text="{Binding .}" />
+                                </ViewCell>
+                          </DataTemplate>
+                        </ListView.ItemTemplate>
+  
+                        
+                    </ListView>
+                    
+                    <Frame WidthRequest="100"                          
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand"
+                           CornerRadius="10"
+                           OutlineColor="{StaticResource GreenColor}"
+                           x:Name="TrainerFrame"
+                           BackgroundColor="{StaticResource GreenColor}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Handle_Calender"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="TrainerLabel" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="Select" TextColor="{StaticResource BlackColor}"/>
+                     </Frame>
+                    
+                </StackLayout>
+                
+            </StackLayout>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -4,7 +4,7 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 <!--            <controls:CalendarView x:Name="calenderView"/>-->
-            <controls:Calendar HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  x:Name="calendar" />
+            <controls:Calendar HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"  x:Name="calendar" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -239,6 +239,10 @@
     <ImageAsset Include="Assets.xcassets\trainmeback.imageset\__TrainMe 1x.png" />
     <ImageAsset Include="Assets.xcassets\trainmeback.imageset\__TrainMe 2x.png" />
     <ImageAsset Include="Assets.xcassets\trainmeback.imageset\__TrainMe 3x.png" />
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 1x.png" />
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 2x.png" />
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -254,6 +258,7 @@
     <Folder Include="Assets.xcassets\lightgray_cal.imageset\" />
     <Folder Include="Assets.xcassets\edit_icon.imageset\" />
     <Folder Include="Assets.xcassets\trainmeback.imageset\" />
+    <Folder Include="Assets.xcassets\green_cal.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
