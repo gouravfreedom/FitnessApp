@@ -13,13 +13,14 @@ namespace DFS.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Rg.Plugins.Popup.Popup.Init();
+            //Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             //global::Xamarin.FormsMaps.Init ();
-            Xamarin.FormsGoogleMaps.Init("AIzaSyDoXdTaPhf4w3EQpjciwMVsQJ4TPcMGXjY");
-            Xamarin.Forms.DependencyService.Register<Platform_Implemetation_IOS>();
+            //Xamarin.FormsGoogleMaps.Init("AIzaSyDoXdTaPhf4w3EQpjciwMVsQJ4TPcMGXjY");
+            //Xamarin.Forms.DependencyService.Register<Platform_Implemetation_IOS>();
 
             LoadApplication(new App());
+
 
             SfListViewRenderer.Init();
 

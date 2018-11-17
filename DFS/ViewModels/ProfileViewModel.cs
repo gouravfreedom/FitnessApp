@@ -227,21 +227,42 @@ namespace DFS.ViewModels
 
             //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
 
-            TrainerName = App.LoginResponse.basicInfo.Name;
-            TrainingPlace = App.LoginResponse.basicInfo.Address;
-            TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
-            TrainerExperience = App.LoginResponse.professionalInfo.Experience;
-            TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
 
-            ServiceListData = App.LoginResponse.professionalInfo.services;
-
-            TrainerCert = "";
-
-            foreach(var item in App.LoginResponse.professionalInfo.certifications)
+            if (App.SelectedView == "Trainer")
             {
-                TrainerCert += item.Certification + " | ";
+
+                TrainerName = App.LoginResponse.basicInfo.Name;
+                TrainingPlace = App.LoginResponse.basicInfo.Address;
+                TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
+                TrainerExperience = App.LoginResponse.professionalInfo.Experience;
+                TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
+
+                ServiceListData = App.LoginResponse.professionalInfo.services;
+
+                TrainerCert = "";
+
+                foreach (var item in App.LoginResponse.professionalInfo.certifications)
+                {
+                    TrainerCert += item.Certification + " | ";
+                }
             }
-           
+            else
+            {
+                TrainerName = App.TrainerData.basicInfo.Name;
+                TrainingPlace = App.TrainerData.basicInfo.Address;
+                TrainerAccolades = App.TrainerData.professionalInfo.Accolades;
+                TrainerExperience = App.TrainerData.professionalInfo.Experience;
+                TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
+
+                ServiceListData = App.TrainerData.professionalInfo.services;
+
+                TrainerCert = "";
+
+                foreach (var item in App.TrainerData.professionalInfo.certifications)
+                {
+                    TrainerCert += item.Certification + " | ";
+                }
+            }
 
             SelectedIndex = 0;
 

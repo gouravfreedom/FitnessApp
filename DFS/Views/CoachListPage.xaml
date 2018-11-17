@@ -17,7 +17,7 @@
 
                     <Entry BackgroundColor="{StaticResource LightBackgroundColor}" Margin="40,0" Placeholder="Example, Scuba Diving" HorizontalTextAlignment="Start" TextColor="{StaticResource MediumGrayTextColor}" />
                     
-                    <ListView x:Name="ItemsListView" ItemsSource="{Binding ListViewData}" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
+                    <ListView x:Name="ItemsListView" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ListViewData}" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

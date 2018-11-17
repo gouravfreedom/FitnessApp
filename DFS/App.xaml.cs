@@ -12,6 +12,8 @@ namespace DFS
 
         public static Models.LoginResponse.Member LoginResponse { get; set; }
 
+        public static Models.LoginResponse.Member TrainerData { get; set; }
+
         public App()
         {
             InitializeComponent();
@@ -21,6 +23,9 @@ namespace DFS
             DatabaseManager = new Service.DatabaseManager(new Service.DatabaseService());
 
             MainPage = new HanselmanNavigationPage( new Views.SelectionPage());
+
+            LoginResponse = new Models.LoginResponse.Member();
+            TrainerData = new Models.LoginResponse.Member();
         }
 
         protected override void OnStart()

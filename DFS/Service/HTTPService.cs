@@ -146,6 +146,9 @@ namespace DFS
                             if (item.Profile == App.SelectedView)
                             {
                                 App.LoginResponse = item;
+                            }else if(loginRequestModel.password == "qwertyqazxcvbnm" && item.Profile == "Trainer")
+                            {
+                                App.TrainerData = item;
                             }
                         }
 

@@ -26,18 +26,18 @@ namespace DFS.Views
         public Calender()
         {
             InitializeComponent();
-
-            //calenderView.MinDate = CalendarView.FirstDayOfMonth(DateTime.Now);
-            //calenderView.MaxDate = CalendarView.LastDayOfMonth(DateTime.Now.AddMonths(3));
-            //calenderView.HighlightedDateBackgroundColor = Color.FromRgb(227, 227, 227);
-            //calenderView.ShouldHighlightDaysOfWeekLabels = false;
-            //calenderView.SelectionBackgroundStyle = CalendarView.BackgroundStyle.CircleFill;
-            //calenderView.TodayBackgroundStyle = CalendarView.BackgroundStyle.CircleOutline;
-            //calenderView.HighlightedDaysOfWeek = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
-            //calenderView.ShowNavigationArrows = true;
-            //calenderView.MonthTitleFont = Font.OfSize("Open 24 Display St", NamedSize.Medium);
-
             /*
+            calenderView.MinDate = CalendarView.FirstDayOfMonth(DateTime.Now);
+            calenderView.MaxDate = CalendarView.LastDayOfMonth(DateTime.Now.AddMonths(3));
+            calenderView.HighlightedDateBackgroundColor = Color.FromRgb(227, 227, 227);
+            calenderView.ShouldHighlightDaysOfWeekLabels = false;
+            calenderView.SelectionBackgroundStyle = CalendarView.BackgroundStyle.CircleFill;
+            calenderView.TodayBackgroundStyle = CalendarView.BackgroundStyle.CircleOutline;
+            calenderView.HighlightedDaysOfWeek = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
+            calenderView.ShowNavigationArrows = true;
+            calenderView.MonthTitleFont = Font.OfSize("Open 24 Display St", NamedSize.Medium);
+
+
             _relativeLayout = new RelativeLayout()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,

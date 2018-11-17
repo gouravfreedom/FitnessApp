@@ -40,10 +40,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Distribution: Guillermo Silva (74MK94642A)</CodesignKey>
-    <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
     <CodesignProvision>Updated_Maya</CodesignProvision>
@@ -179,6 +178,12 @@
     </Reference>
     <Reference Include="Plugin.Connectivity">
       <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="XamForms.Controls.Calendar">
+      <HintPath>..\packages\XamForms.Controls.Calendar.1.1.0\lib\Xamarin.iOS10\XamForms.Controls.Calendar.dll</HintPath>
+    </Reference>
+    <Reference Include="XamForms.Controls.Calendar.iOS">
+      <HintPath>..\packages\XamForms.Controls.Calendar.1.1.0\lib\Xamarin.iOS10\XamForms.Controls.Calendar.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
