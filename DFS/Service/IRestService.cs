@@ -14,5 +14,7 @@ namespace DFS
         Task<Models.TrainerListModel> FetchTrainerList();
 
         Models.LoginResponse.SyncLoginResponse LoginResponse(String SelectedInput);
+
+        Task<string> GetFacebookInfo();
     }
 }

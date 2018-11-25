@@ -23,6 +23,99 @@ namespace DFS
 
         }
 
+        public async Task<string> GetFacebookInfo()
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+
+                String access_token = await GetAccessToken();
+
+                if(access_token == "Internal Server Error. Please try again.")
+                {
+                    return "Internal Server Error. Please try again.";
+                }
+
+
+                String url = "https://graph.facebook.com/v3.2/me?fields=name,picture,age_range,birthday,devices,email,first_name,last_name,gender,languages&access_token=" + access_token;
+
+                var uri = new Uri(url);
+
+                try
+                {
+
+                    HttpResponseMessage response = null;
+
+                    response = await client.GetAsync(uri);
+
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return "Success";
+                    }
+                    else
+                    {
+                        return "Internal Server Error. Please try again.";
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return "Internal Server Error. Please try again.";
+                }
+            }
+            else
+            {
+                return "Internet Connectivity error. Please try again.";
+            }
+
+        }
+
+
+        public async Task<string> GetAccessToken()
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+
+                String url = "https://graph.facebook.com/v3.2/oauth/access_token?client_id=1699986470106189&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=8eec9d2368947acef2839159f6410863&code=" + App.access_code;
+
+                var uri = new Uri(url);
+
+                try
+                {
+                    HttpResponseMessage response = null;
+                    response = await client.GetAsync(uri);
+
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        FacebookAccessTokenModel facebookAccessTokenModel = JsonConvert.DeserializeObject<FacebookAccessTokenModel>(responseJson);
+
+                        return facebookAccessTokenModel.AccessToken;
+                    }
+                    else
+                    {
+                        return "Internal Server Error. Please try again.";
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return "Internal Server Error. Please try again.";
+                }
+            }
+            else
+            {
+                return "Internet Connectivity error. Please try again.";
+            }
+
+        }
+
+
         public async Task<TrainerListModel> FetchTrainerList()
         {
             TrainerListModel trainerListModel = new TrainerListModel();

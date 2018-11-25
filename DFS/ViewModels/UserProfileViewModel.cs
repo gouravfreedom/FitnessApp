@@ -101,6 +101,33 @@ namespace DFS
             MessagingCenter.Send<UserProfileViewModel>(this, "SignUp");
         }
 
+
+        public async void FacebookData()
+        {
+
+
+            IsServiceInProgress = true;
+
+           
+            var message = await App.TodoManager.GetFacebookInfo();
+
+            if (message == "Success")
+            {
+
+            }
+            else
+            {
+                MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", message);
+            }
+
+            IsServiceInProgress = false;
+
+
+
+
+        }
+
+
         public async void OnLogin() {
 
             if (Username == null || UserPassword == null || Username == "" || UserPassword == ""){

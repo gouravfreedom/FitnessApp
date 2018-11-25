@@ -34,5 +34,10 @@ namespace DFS.Service
         {
             throw new NotImplementedException();
         }
+
+        public Task<string> GetFacebookInfo()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

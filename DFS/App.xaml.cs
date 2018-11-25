@@ -14,6 +14,8 @@ namespace DFS
 
         public static Models.LoginResponse.Member TrainerData { get; set; }
 
+        public static string access_code { get; set; }
+
         public App()
         {
             InitializeComponent();
@@ -23,6 +25,8 @@ namespace DFS
             DatabaseManager = new Service.DatabaseManager(new Service.DatabaseService());
 
             MainPage = new HanselmanNavigationPage( new Views.SelectionPage());
+
+            //MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
 
             LoginResponse = new Models.LoginResponse.Member();
             TrainerData = new Models.LoginResponse.Member();

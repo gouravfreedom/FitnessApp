@@ -152,6 +152,7 @@
     <Compile Include="Views\TimeSelectionPopup.xaml.cs">
       <DependentUpon>TimeSelectionPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\FacebookAccessTokenModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -243,6 +244,9 @@
     </Reference>
     <Reference Include="Rg.Plugins.Popup">
       <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.145-pre\lib\netstandard1.0\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\packages\Xamarin.Auth.1.6.0.4\lib\netstandard1.0\Xamarin.Auth.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -24,6 +24,12 @@ namespace DFS
         {
             base.OnAppearing();
 
+            if(App.access_code != null)
+            {
+                userProfileViewModel.FacebookData();
+            }
+
+
             MessagingCenter.Subscribe<UserProfileViewModel, String>(this, "LoginSuccess", async (sender, message) =>
             {
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginSuccess");
@@ -56,7 +62,7 @@ namespace DFS
 
         async void Handle_Facebook(object sender, System.EventArgs e)
         {
-            await this.Navigation.PushAsync(new FacebookLogin.Views.FacebookProfileCsPage());
+            await this.Navigation.PushAsync(new Views.FacebookProfileCsPage());
         }
 
         async void Handle_SignUpClickedAsync(object sender, System.EventArgs e)

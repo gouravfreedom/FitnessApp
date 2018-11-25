@@ -27,5 +27,10 @@ namespace DFS
             return restService.FetchTrainerList();
         }
 
+        public Task<String> GetFacebookInfo()
+        {
+            return restService.GetFacebookInfo();
+        }
+
     }
 }
