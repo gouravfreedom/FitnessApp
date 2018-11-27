@@ -16,6 +16,8 @@ namespace DFS
 
         public static string access_code { get; set; }
 
+        public static Models.FacebookProfile FacebookProfile { get; set; }
+
         public App()
         {
             InitializeComponent();
@@ -30,6 +32,9 @@ namespace DFS
 
             LoginResponse = new Models.LoginResponse.Member();
             TrainerData = new Models.LoginResponse.Member();
+
+            FacebookProfile = new Models.FacebookProfile();
+
         }
 
         protected override void OnStart()

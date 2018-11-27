@@ -50,6 +50,11 @@ namespace DFS
 
                     if (response.IsSuccessStatusCode)
                     {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        FacebookProfile facebook = JsonConvert.DeserializeObject<FacebookProfile>(responseJson);
+
+                        App.FacebookProfile = facebook;
+
                         return "Success";
                     }
                     else

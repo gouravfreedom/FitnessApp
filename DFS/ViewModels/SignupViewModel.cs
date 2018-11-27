@@ -538,7 +538,7 @@ namespace DFS.ViewModels
             signupModel.email = EmailAddress;
             signupModel.password = Password;
             signupModel.profile = SelectedView;
-            signupModel.signUpMetod = "App";
+            signupModel.signUpMetod = (Password == "fb@trainme") ? "FB" : "App";
             signupModel.imagePayload = User64String;
 
 

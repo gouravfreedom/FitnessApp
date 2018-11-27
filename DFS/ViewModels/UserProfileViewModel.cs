@@ -113,7 +113,9 @@ namespace DFS
 
             if (message == "Success")
             {
-
+                Username = App.FacebookProfile.Id;
+                UserPassword = "fb@trainme";
+                OnLogin();
             }
             else
             {

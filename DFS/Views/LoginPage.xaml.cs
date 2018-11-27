@@ -36,8 +36,21 @@ namespace DFS
                 MessagingCenter.Unsubscribe<UserProfileViewModel>(this, "LoginFailure");
                 if (message == "NAV")
                 {
-                    await DisplayAlert("Alert", "No user exist. Please sign up.", "OK");
+                    if (userProfileViewModel.UserPassword == "fb@trainme")
+                    {
+                        ViewModels.SignupViewModel signupViewModel = new ViewModels.SignupViewModel();
+                        signupViewModel.EmailAddress = userProfileViewModel.Username;
+                        signupViewModel.Password = userProfileViewModel.UserPassword;
+                        signupViewModel.Name = App.FacebookProfile.Name;
+                        signupViewModel.UserIcon = App.FacebookProfile.Picture.Data.Url;
+                        signupViewModel.SelectedView = App.SelectedView;
 
+                        App.Current.MainPage = new Views.UserInformationPage(signupViewModel);
+                    }
+                    else
+                    {
+                        await DisplayAlert("Alert", "No user exist. Please sign up.", "OK");
+                    }
                 }
                 else
                 {
