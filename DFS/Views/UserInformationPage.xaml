@@ -33,7 +33,7 @@
 
                                 <StackLayout Margin="20,0">
                                     <Label Text="Title" TextColor="White" Font="Bold"/>
-                                    <Picker SelectedIndex="{Binding TitleIndex}" ItemsSource="{Binding TitleList}" Title="Select Title" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
+                                    <Picker ItemsSource="{Binding TitleList}" SelectedIndex="{Binding TitleIndex, Mode=TwoWay}" Title="Select Title" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
                                 </StackLayout>
 
                                 <StackLayout Margin="20,0">
@@ -43,7 +43,7 @@
 
                                 <StackLayout Margin="20,0">
                                     <Label Text="Gender" TextColor="White" Font="Bold"/>
-                                    <Picker SelectedIndex="{Binding GenderIndex}" ItemsSource="{Binding GenderList}" Title="Select Gender" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
+                                    <Picker ItemsSource="{Binding GenderList}" SelectedIndex="{Binding GenderIndex, Mode=TwoWay}" Title="Select Gender" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
                                 </StackLayout>
 
                                 <StackLayout Margin="20,0">
@@ -68,7 +68,7 @@
 
                                 <StackLayout Margin="20,0">
                                     <Label Text="Sports Interest" TextColor="White" Font="Bold"/>
-                                    <Picker SelectedIndex="{Binding SportsIndex}" ItemsSource="{Binding SportsList}" Title="Select Sports" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" ></Picker>
+                                    <Picker ItemsSource="{Binding SportsList}" SelectedIndex="{Binding SportsIndex,Mode=TwoWay}" Title="Select Sports" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" ></Picker>
                                 </StackLayout>
 
                                 <StackLayout Margin="20,0">
@@ -86,7 +86,7 @@
                                         <Label Text="Speciality" TextColor="White" Font="Bold"/>
 <!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
                                     </StackLayout>
-                                    <Picker Title="Select Speciality" SelectedIndex="{Binding SpecialityIndex}" ItemsSource="{Binding SpecialityList}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                                    <Picker Title="Select Speciality" ItemsSource="{Binding SpecialityList}" SelectedIndex="{Binding SpecialityIndex, Mode=TwoWay}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
                                     
                                 </StackLayout>
 

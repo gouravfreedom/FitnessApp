@@ -475,48 +475,48 @@ namespace DFS.ViewModels
                 IsTrainerView = false;
             }
 
-            _titleList = new ObservableCollection<String>();
-            _titleList.Add("Mr.");
-            _titleList.Add("Mrs.");
-            _titleList.Add("Miss");
+            TitleList = new ObservableCollection<String>();
+            TitleList.Add("Mr.");
+            TitleList.Add("Mrs.");
+            TitleList.Add("Miss");
 
-            _genderList = new ObservableCollection<String>();
-            _genderList.Add("Male");
-            _genderList.Add("Female");
+            GenderList = new ObservableCollection<String>();
+            GenderList.Add("Male");
+            GenderList.Add("Female");
 
-            _sportsList = new ObservableCollection<String>();
-            _sportsList.Add("Cricket");
-            _sportsList.Add("Baseball");
-            _sportsList.Add("Football");
-            _sportsList.Add("Tennis");
-            _sportsList.Add("Table Tennis");
-            _sportsList.Add("Basketball");
-            _sportsList.Add("Swimming");
-            _sportsList.Add("Athletics");
-            _sportsList.Add("Others");
+            SportsList = new ObservableCollection<String>();
+            SportsList.Add("Cricket");
+            SportsList.Add("Baseball");
+            SportsList.Add("Football");
+            SportsList.Add("Tennis");
+            SportsList.Add("Table Tennis");
+            SportsList.Add("Basketball");
+            SportsList.Add("Swimming");
+            SportsList.Add("Athletics");
+            SportsList.Add("Others");
 
-            _specialityList = new ObservableCollection<String>();
-            _specialityList.Add("Cricket");
-            _specialityList.Add("Baseball");
-            _specialityList.Add("Football");
-            _specialityList.Add("Tennis");
-            _specialityList.Add("Table Tennis");
-            _specialityList.Add("Basketball");
-            _specialityList.Add("Swimming");
-            _specialityList.Add("Athletics");
-            _specialityList.Add("Others");
+            SpecialityList = new ObservableCollection<String>();
+            SpecialityList.Add("Cricket");
+            SpecialityList.Add("Baseball");
+            SpecialityList.Add("Football");
+            SpecialityList.Add("Tennis");
+            SpecialityList.Add("Table Tennis");
+            SpecialityList.Add("Basketball");
+            SpecialityList.Add("Swimming");
+            SpecialityList.Add("Athletics");
+            SpecialityList.Add("Others");
 
-            _userIcon = "defaultIcon.png";
+            UserIcon = "defaultIcon.png";
 
-            _user64String = "NA";
+            User64String = "NA";
 
             // Intialize commands
             SaveCommand = new Command(() => SaveClicked());
             PictureCommand = new Command(() => SelectImage());
 
-            _isServiceInProgress = false;
+            IsServiceInProgress = false;
 
-            _dateOfBirth = new DateTime(2000, 1, 1);
+            DateOfBirth = new DateTime(2000, 1, 1);
 
             Initialization = InitializeAsync();
 
@@ -582,7 +582,7 @@ namespace DFS.ViewModels
             Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
             service.chargingPeriod = ServiceInfo;
             service.serviceName = Services;
-            service.charges = Convert.ToInt16(ServicesPrice);
+            service.charges = Convert.ToDouble(ServicesPrice);
 
             services.Add(service);
 
@@ -674,7 +674,7 @@ namespace DFS.ViewModels
 
                 EmailAddress = App.LoginResponse.Email;
                 Password = App.LoginResponse.Password;
-                User64String = App.LoginResponse.ImagePayload;
+                User64String = "NA";
                 SelectedView = App.SelectedView;
 
             }

@@ -44,6 +44,7 @@ namespace DFS
                         signupViewModel.Name = App.FacebookProfile.Name;
                         signupViewModel.UserIcon = App.FacebookProfile.Picture.Data.Url;
                         signupViewModel.SelectedView = App.SelectedView;
+                        
 
                         App.Current.MainPage = new Views.UserInformationPage(signupViewModel);
                     }

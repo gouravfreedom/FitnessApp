@@ -120,12 +120,8 @@ namespace DFS
             else
             {
                 MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", message);
+                IsServiceInProgress = false;
             }
-
-            IsServiceInProgress = false;
-
-
-
 
         }
 

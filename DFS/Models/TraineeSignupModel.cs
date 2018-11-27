@@ -78,7 +78,7 @@ namespace DFS.Models
         {
             public String serviceName { get; set; }
 
-            public int charges { get; set; }
+            public Double charges { get; set; }
 
             public String chargingPeriod { get; set; }
 

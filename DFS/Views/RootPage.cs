@@ -66,7 +66,13 @@ namespace DFS
 
                     case (int)MenuType.Logout:
                         App.LoginResponse = new Models.LoginResponse.Member();
+                        App.TrainerData = new Models.LoginResponse.Member();
+                        App.FacebookProfile = new Models.FacebookProfile();
+                        App.SelectedView = null;
+                        App.access_code = null;
+
                         Application.Current.MainPage = new NavigationPage(new Views.SelectionPage());
+
                         //await this.Navigation.PushAsync(new NavigationPage(new LoginPage(selectedView)));
                         return;
         			
