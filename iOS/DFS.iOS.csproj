@@ -244,6 +244,25 @@
     <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 2x.png" />
     <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 3x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-02.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-02.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\12.9 iPad Pro-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-02.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-02 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-01 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\7.9 iPad mini 4-02.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-01 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-02 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 5.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 4.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 3.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\7.9 iPad mini 4-01 copy.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -260,9 +279,6 @@
     <Folder Include="Assets.xcassets\edit_icon.imageset\" />
     <Folder Include="Assets.xcassets\trainmeback.imageset\" />
     <Folder Include="Assets.xcassets\green_cal.imageset\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -285,8 +301,6 @@
     <BundleResource Include="Resources\blog.png" />
     <BundleResource Include="Resources\blog%402x.png" />
     <BundleResource Include="Resources\channel9.png" />
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\Default%402x.png" />
     <BundleResource Include="Resources\facebook.png" />
     <BundleResource Include="Resources\facebook%402x.png" />
     <BundleResource Include="Resources\googleplus.png" />

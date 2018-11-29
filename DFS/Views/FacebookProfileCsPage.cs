@@ -49,7 +49,7 @@ namespace DFS.Views
 
         private String ExtractAccessTokenFromUrl(string url)
         {
-            if (url.Contains("code"))
+            if (url.Contains("code") && !url.Contains("error_code"))
             {
                 String at = url.Replace("https://www.facebook.com/connect/login_success.html?code=", "");
 

@@ -136,7 +136,6 @@
       <DependentUpon>TrainerProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ProfileViewModel.cs" />
-    <Compile Include="Views\MainCsPage.cs" />
     <Compile Include="Views\FacebookProfileCsPage.cs" />
     <Compile Include="Models\FacebookProfile.cs" />
     <Compile Include="ViewModels\TraineeProfileViewModel.cs" />
