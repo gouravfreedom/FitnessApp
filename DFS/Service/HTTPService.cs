@@ -127,7 +127,7 @@ namespace DFS
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/trainerlist");
+                var uri = new Uri("https://trainmeapp.in:8443/FitnessApp/manageservices/v1/members/trainerlist");
 
                 try
                 {
@@ -170,7 +170,7 @@ namespace DFS
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/signup");
+                var uri = new Uri("https://trainmeapp.in:8443/FitnessApp/manageservices/v1/members/signup");
 
                 try
                 {
@@ -223,7 +223,7 @@ namespace DFS
             if (CrossConnectivity.Current.IsConnected)
             {
 
-                var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/validateMember");
+                var uri = new Uri("https://trainmeapp.in:8443/FitnessApp/manageservices/v1/members/validateMember");
 
                 try
                 {
