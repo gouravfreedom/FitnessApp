@@ -150,6 +150,9 @@
       <DependentUpon>TimeSelectionPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\FacebookAccessTokenModel.cs" />
+    <Compile Include="Models\CalenerListModal.cs" />
+    <Compile Include="Models\SetTimeSlotsRequestModel.cs" />
+    <Compile Include="Models\SetTimeSlotResponseModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

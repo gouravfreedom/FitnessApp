@@ -26,9 +26,9 @@ namespace DFS
 
             DatabaseManager = new Service.DatabaseManager(new Service.DatabaseService());
 
-            MainPage = new HanselmanNavigationPage( new Views.SelectionPage());
+            //MainPage = new HanselmanNavigationPage( new Views.SelectionPage());
 
-            //MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
+            MainPage = new HanselmanNavigationPage(new Views.CalenderPage());
 
             LoginResponse = new Models.LoginResponse.Member();
             TrainerData = new Models.LoginResponse.Member();

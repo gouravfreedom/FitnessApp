@@ -280,6 +280,54 @@ namespace DFS
             throw new NotImplementedException();
         }
 
+        public async Task<string> SetCalenderEvent(SetTimeSlotsRequestModel setTimeSlots)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
 
+                var uri = new Uri("https://trainmeapp.in:8443/FitnessApp/manageservices/v1/members/addTimeSlots");
+
+                try
+                {
+                    var json = JsonConvert.SerializeObject(setTimeSlots);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = null;
+
+                    response = await client.PostAsync(uri, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        SetTimeSlotResponseModel responseItem = JsonConvert.DeserializeObject<SetTimeSlotResponseModel>(responseJson);
+
+                        if (responseItem.status.status == "SUCCESS")
+                        {
+                            return "Success";
+                        }
+                        else
+                        {
+                            return "Internal Server Error. Please try again.";
+                        }
+
+                    }
+                    else
+                    {
+                        return "Internal Server Error. Please try again.";
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return "Internal Server Error. Please try again.";
+                }
+            }
+            else
+            {
+                return "Internet Connectivity error. Please try again.";
+            }
+        }
     }
 }

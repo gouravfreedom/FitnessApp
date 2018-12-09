@@ -16,5 +16,9 @@ namespace DFS
         Models.LoginResponse.SyncLoginResponse LoginResponse(String SelectedInput);
 
         Task<string> GetFacebookInfo();
+
+        Task<string> SetCalenderEvent(Models.SetTimeSlotsRequestModel setTimeSlots);
+
+
     }
 }

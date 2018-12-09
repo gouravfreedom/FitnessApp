@@ -32,5 +32,10 @@ namespace DFS
             return restService.GetFacebookInfo();
         }
 
+        public Task<String> SetTimeSlot(Models.SetTimeSlotsRequestModel setTimeSlots)
+        {
+            return restService.SetCalenderEvent(setTimeSlots);
+        }
+
     }
 }

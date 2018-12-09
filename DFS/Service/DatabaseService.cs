@@ -39,5 +39,10 @@ namespace DFS.Service
         {
             throw new NotImplementedException();
         }
+
+        public Task<string> SetCalenderEvent(SetTimeSlotsRequestModel setTimeSlots)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
