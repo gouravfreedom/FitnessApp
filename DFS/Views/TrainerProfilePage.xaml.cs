@@ -23,6 +23,11 @@ namespace DFS.Views
             App.Current.MainPage = new UserInformationPage(new ViewModels.SignupViewModel());
         }
 
+        async void Handle_Calender(object sender, System.EventArgs e)
+        {
+            await this.Navigation.PushAsync(new CalenderPage());
+        }
+
         void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             // don't do anything if we just de-selected the row.

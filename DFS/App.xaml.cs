@@ -28,7 +28,7 @@ namespace DFS
 
             //MainPage = new HanselmanNavigationPage( new Views.SelectionPage());
 
-            MainPage = new HanselmanNavigationPage(new Views.CalenderPage());
+            MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
 
             LoginResponse = new Models.LoginResponse.Member();
             TrainerData = new Models.LoginResponse.Member();

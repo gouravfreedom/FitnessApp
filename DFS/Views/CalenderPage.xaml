@@ -66,13 +66,14 @@
                                VerticalOptions="CenterAndExpand"
                                CornerRadius="10"
                                Margin="0,10,0,0"
+                               IsVisible="{Binding IsSubmitVisible}"
                                OutlineColor="{StaticResource GreenColor}"
                                x:Name="TrainerFrame"
                                BackgroundColor="{StaticResource GreenColor}">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="Handle_Calender"/>
                             </Frame.GestureRecognizers>
-                            <Label x:Name="TrainerLabel" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="Select" TextColor="{StaticResource BlackColor}"/>
+                            <Label FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="Select" TextColor="{StaticResource BlackColor}"/>
                          </Frame>
                         
                         <Frame WidthRequest="100"                          
@@ -108,7 +109,7 @@
 
                <ActivityIndicator IsRunning="{Binding IsServiceInProgress}" Color ="{StaticResource HeaderColor}"/>
 
-               <Label Text="Loading..." HorizontalOptions="Center" TextColor="White"/>
+               <Label Text="Submitting..." HorizontalOptions="Center" TextColor="White"/>
             </StackLayout>
             
         </AbsoluteLayout>

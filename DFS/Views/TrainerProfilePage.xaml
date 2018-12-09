@@ -37,7 +37,11 @@
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="profile1.jpeg"/>
                         </Frame>
                         
-                        <Image Source="lightgray_cal" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand" />
+                        <Image Source="lightgray_cal" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Handle_Calender"/>
+                            </Image.GestureRecognizers>
+                        </Image>
                         
                     </StackLayout>
                     

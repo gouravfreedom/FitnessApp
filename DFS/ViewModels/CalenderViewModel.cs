@@ -9,6 +9,21 @@ namespace DFS.ViewModels
 {
     public class CalenderViewModel : INotifyPropertyChanged
     {
+
+        private bool _isSubmitVisible;
+        public bool IsSubmitVisible
+        {
+            get
+            {
+                return _isSubmitVisible;
+            }
+            set
+            {
+                _isSubmitVisible = value;
+                RaisePropertyChanged(nameof(IsSubmitVisible));
+            }
+        }
+
         private bool _isServiceInProgress;
         public bool IsServiceInProgress
         {
@@ -156,6 +171,15 @@ namespace DFS.ViewModels
             RefreshData();
 
             _isServiceInProgress = false;
+
+            if(App.SelectedView == "Trainer")
+            {
+                IsSubmitVisible = false;
+            }
+            else
+            {
+                IsSubmitVisible = true;
+            }
         }
 
         public void RefreshData()
